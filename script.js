@@ -18,24 +18,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Configurar botones sociales (WhatsApp, TikTok)
 function configureSocialButtons() {
-    // Botón TikTok
     const tiktokBtn = document.querySelector('.tiktok-button');
-    if (tiktokBtn) {
-        tiktokBtn.href = 'https://www.tiktok.com/@cinapri.pq';
-    }
+    if (tiktokBtn) tiktokBtn.href = 'https://www.tiktok.com/@cinapri.pq';
     
-    // Botón WhatsApp - usando el número correcto para mensajes
     const whatsappBtn = document.getElementById('whatsappButton');
     if (whatsappBtn) {
         const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-        if (isMobile) {
-            whatsappBtn.href = `https://wa.me/${PHONE_WHATSAPP}`;
-        } else {
-            whatsappBtn.href = `https://web.whatsapp.com/send?phone=${PHONE_WHATSAPP}`;
-        }
+        whatsappBtn.href = isMobile ? `https://wa.me/${PHONE_WHATSAPP}` : `https://web.whatsapp.com/send?phone=${PHONE_WHATSAPP}`;
     }
     
-    // Back to top
     const backToTop = document.getElementById('backToTop');
     if (backToTop) {
         backToTop.addEventListener('click', (e) => {
@@ -84,13 +75,10 @@ function setupScrollEffects() {
     
     window.addEventListener('scroll', () => {
         if (navbar) {
-            if (window.scrollY > 100) navbar.classList.add('scrolled');
-            else navbar.classList.remove('scrolled');
+            navbar.classList.toggle('scrolled', window.scrollY > 100);
         }
-        
         if (backToTop) {
-            if (window.scrollY > 500) backToTop.classList.add('visible');
-            else backToTop.classList.remove('visible');
+            backToTop.classList.toggle('visible', window.scrollY > 500);
         }
     });
 }
@@ -101,15 +89,14 @@ function setupAnimations() {
     
     const animateOnScroll = () => {
         animateElements.forEach(element => {
-            const elementTop = element.getBoundingClientRect().top;
-            if (elementTop < window.innerHeight - 100) {
+            if (element.getBoundingClientRect().top < window.innerHeight - 100) {
                 element.classList.add('visible');
             }
         });
     };
     
     window.addEventListener('scroll', animateOnScroll);
-    animateOnScroll(); // Ejecutar inicial
+    animateOnScroll();
 }
 
 // Contador de estadísticas
@@ -154,12 +141,14 @@ function setupParticles() {
         const p = document.createElement('div');
         p.classList.add('particle');
         const size = Math.random() * 5 + 2;
-        p.style.width = `${size}px`;
-        p.style.height = `${size}px`;
-        p.style.left = `${Math.random() * 100}vw`;
-        p.style.top = `${Math.random() * 100}vh`;
-        p.style.background = ['#8a2be2', '#00c896'][Math.floor(Math.random() * 2)];
-        p.style.animation = `particle-float ${Math.random() * 20 + 10}s linear infinite`;
+        p.style.cssText = `
+            width: ${size}px;
+            height: ${size}px;
+            left: ${Math.random() * 100}vw;
+            top: ${Math.random() * 100}vh;
+            background: ${['#8a2be2', '#00c896'][Math.floor(Math.random() * 2)]};
+            animation: particle-float ${Math.random() * 20 + 10}s linear infinite;
+        `;
         container.appendChild(p);
     }
 }
@@ -211,13 +200,13 @@ function setupTypingEffect() {
     }, 800);
 }
 
-// Efectos hover mejorados para tarjetas (opcional)
+// Efectos hover mejorados para tarjetas
 document.addEventListener('DOMContentLoaded', () => {
-    const cards = document.querySelectorAll('.skill-card, .contact-card, .stat-item');
+    const cards = document.querySelectorAll('.skill-card, .contact-card, .stat-item, .project-card');
     cards.forEach(card => {
         card.addEventListener('mouseenter', function() {
-            if (this.classList.contains('skill-card')) {
-                this.style.transform = 'translateY(-12px) scale(1.03)';
+            if (this.classList.contains('skill-card') || this.classList.contains('project-card')) {
+                this.style.transform = 'translateY(-12px) scale(1.02)';
             } else {
                 this.style.transform = 'translateY(-10px)';
             }
