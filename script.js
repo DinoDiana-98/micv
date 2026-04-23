@@ -1,218 +1,123 @@
-// Configuración de números de contacto
-const PHONE_CALL = '51904908206';  // +51 904 908 206 (para llamadas)
-const PHONE_WHATSAPP = '51918358296'; // +51 918 358 296 (para WhatsApp)
+// ============================================
+// CINAPRI CV SCRIPT - Leidy Diana Principe Quispe
+// ============================================
 
-// Inicialización al cargar el DOM
 document.addEventListener('DOMContentLoaded', () => {
-    configureSocialButtons();
     setupLoadingScreen();
     setupMobileMenu();
     setupScrollEffects();
-    setupAnimations();
-    setupStatsCounter();
-    setupParticles();
+    setupScrollAnimations();
+    setupWhatsAppButton();
+    setupBackToTop();
     setupSmoothScroll();
-    setupParallax();
-    setupTypingEffect();
+    setupParallaxFix();
 });
-
-// Configurar botones sociales (WhatsApp, TikTok)
-function configureSocialButtons() {
-    const tiktokBtn = document.querySelector('.tiktok-button');
-    if (tiktokBtn) tiktokBtn.href = 'https://www.tiktok.com/@cinapri.pq';
-    
-    const whatsappBtn = document.getElementById('whatsappButton');
-    if (whatsappBtn) {
-        const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-        whatsappBtn.href = isMobile ? `https://wa.me/${PHONE_WHATSAPP}` : `https://web.whatsapp.com/send?phone=${PHONE_WHATSAPP}`;
-    }
-    
-    const backToTop = document.getElementById('backToTop');
-    if (backToTop) {
-        backToTop.addEventListener('click', (e) => {
-            e.preventDefault();
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-    }
-}
 
 // Loading Screen
 function setupLoadingScreen() {
     window.addEventListener('load', () => {
         setTimeout(() => {
-            const loadingScreen = document.getElementById('loadingScreen');
-            if (loadingScreen) loadingScreen.classList.add('hidden');
-        }, 800);
+            const loader = document.getElementById('loadingScreen');
+            if (loader) loader.classList.add('hidden');
+        }, 600);
     });
 }
 
-// Menú móvil
+// Menú Móvil
 function setupMobileMenu() {
-    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-    const navLinks = document.getElementById('navLinks');
-    
-    if (mobileMenuBtn && navLinks) {
-        mobileMenuBtn.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-            mobileMenuBtn.innerHTML = navLinks.classList.contains('active') 
-                ? '<i class="fas fa-times"></i>' 
-                : '<i class="fas fa-bars"></i>';
+    const btn = document.getElementById('mobileMenuBtn');
+    const nav = document.getElementById('navLinks');
+    if (!btn || !nav) return;
+
+    btn.addEventListener('click', () => {
+        nav.classList.toggle('active');
+        btn.innerHTML = nav.classList.contains('active') 
+            ? '<i class="fas fa-times"></i>' 
+            : '<i class="fas fa-bars"></i>';
+    });
+
+    // Cerrar al hacer clic en un enlace
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            nav.classList.remove('active');
+            btn.innerHTML = '<i class="fas fa-bars"></i>';
         });
-        
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-                if (mobileMenuBtn) mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
-            });
-        });
-    }
+    });
 }
 
-// Efectos de scroll (navbar, back to top)
+// Efecto scroll: navbar y botón "volver arriba"
 function setupScrollEffects() {
-    const navbar = document.getElementById('navbar');
-    const backToTop = document.getElementById('backToTop');
-    
+    const topBtn = document.getElementById('topBtn');
+    if (!topBtn) return;
+
     window.addEventListener('scroll', () => {
-        if (navbar) {
-            navbar.classList.toggle('scrolled', window.scrollY > 100);
+        if (window.scrollY > 500) {
+            topBtn.classList.add('visible');
+        } else {
+            topBtn.classList.remove('visible');
         }
-        if (backToTop) {
-            backToTop.classList.toggle('visible', window.scrollY > 500);
-        }
+    });
+
+    topBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 }
 
 // Animaciones al hacer scroll
-function setupAnimations() {
-    const animateElements = document.querySelectorAll('.animate-on-scroll, .timeline-item');
-    
-    const animateOnScroll = () => {
-        animateElements.forEach(element => {
-            if (element.getBoundingClientRect().top < window.innerHeight - 100) {
-                element.classList.add('visible');
-            }
-        });
-    };
-    
-    window.addEventListener('scroll', animateOnScroll);
-    animateOnScroll();
-}
+function setupScrollAnimations() {
+    const elements = document.querySelectorAll('.fade-in, .timeline-item');
 
-// Contador de estadísticas
-function setupStatsCounter() {
-    const statNumbers = document.querySelectorAll('.stat-number');
-    
-    const animateStats = () => {
-        statNumbers.forEach(stat => {
-            const target = parseInt(stat.getAttribute('data-count'));
-            let current = 0;
-            const increment = target / 50;
-            const timer = setInterval(() => {
-                current += increment;
-                if (current >= target) {
-                    current = target;
-                    clearInterval(timer);
-                }
-                stat.textContent = Math.floor(current) + (stat.textContent.includes('%') ? '%' : '+');
-            }, 20);
-        });
-    };
-    
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                animateStats();
-                observer.unobserve(entry.target);
+                entry.target.classList.add('visible');
             }
         });
-    }, { threshold: 0.5 });
-    
-    const heroSection = document.querySelector('.hero');
-    if (heroSection) observer.observe(heroSection);
+    }, { threshold: 0.15 });
+
+    elements.forEach(el => observer.observe(el));
 }
 
-// Partículas flotantes
-function setupParticles() {
-    const container = document.getElementById('particles');
-    if (!container) return;
-    
-    for (let i = 0; i < 25; i++) {
-        const p = document.createElement('div');
-        p.classList.add('particle');
-        const size = Math.random() * 5 + 2;
-        p.style.cssText = `
-            width: ${size}px;
-            height: ${size}px;
-            left: ${Math.random() * 100}vw;
-            top: ${Math.random() * 100}vh;
-            background: ${['#8a2be2', '#00c896'][Math.floor(Math.random() * 2)]};
-            animation: particle-float ${Math.random() * 20 + 10}s linear infinite;
-        `;
-        container.appendChild(p);
-    }
+// WhatsApp (detecta móvil vs escritorio)
+function setupWhatsAppButton() {
+    const btn = document.getElementById('whatsappBtn');
+    if (!btn) return;
+
+    const phone = '51918358296';
+    const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+    btn.href = isMobile ? `https://wa.me/${phone}` : `https://web.whatsapp.com/send?phone=${phone}`;
+}
+
+// Volver arriba
+function setupBackToTop() {
+    const btn = document.getElementById('topBtn');
+    if (!btn) return;
+    btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
 }
 
 // Scroll suave para enlaces internos
 function setupSmoothScroll() {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            const targetId = this.getAttribute('href');
-            if (targetId === "#" || targetId === "") return;
-            const target = document.querySelector(targetId);
+        anchor.addEventListener('click', function(e) {
+            const target = document.querySelector(this.getAttribute('href'));
             if (target) {
                 e.preventDefault();
-                window.scrollTo({ top: target.offsetTop - 80, behavior: 'smooth' });
+                window.scrollTo({ top: target.offsetTop - 70, behavior: 'smooth' });
             }
         });
     });
 }
 
-// Efecto parallax en elementos flotantes
-function setupParallax() {
-    window.addEventListener('scroll', () => {
-        const scrolled = window.pageYOffset;
-        document.querySelectorAll('.floating-element').forEach((el, i) => {
-            const speed = i === 0 ? 0.2 : (i === 1 ? 0.1 : 0.15);
-            el.style.transform = `translateY(${scrolled * speed}px) rotate(${scrolled * 0.1}deg)`;
+// Corrige parallax en algunos móviles
+function setupParallaxFix() {
+    const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+    if (isMobile) {
+        document.querySelectorAll('.parallax').forEach(el => {
+            el.style.backgroundAttachment = 'scroll';
         });
-    });
+    }
 }
-
-// Efecto de escritura en el subtítulo
-function setupTypingEffect() {
-    setTimeout(() => {
-        const subtitle = document.querySelector('.hero-subtitle');
-        if (subtitle && subtitle.getAttribute('data-typed') !== 'true') {
-            const text = subtitle.textContent;
-            subtitle.textContent = '';
-            subtitle.setAttribute('data-typed', 'true');
-            let i = 0;
-            const type = () => {
-                if (i < text.length) {
-                    subtitle.textContent += text.charAt(i);
-                    i++;
-                    setTimeout(type, 40);
-                }
-            };
-            type();
-        }
-    }, 800);
-}
-
-// Efectos hover mejorados para tarjetas
-document.addEventListener('DOMContentLoaded', () => {
-    const cards = document.querySelectorAll('.skill-card, .contact-card, .stat-item, .project-card');
-    cards.forEach(card => {
-        card.addEventListener('mouseenter', function() {
-            if (this.classList.contains('skill-card') || this.classList.contains('project-card')) {
-                this.style.transform = 'translateY(-12px) scale(1.02)';
-            } else {
-                this.style.transform = 'translateY(-10px)';
-            }
-        });
-        card.addEventListener('mouseleave', function() {
-            this.style.transform = 'translateY(0) scale(1)';
-        });
-    });
-});
