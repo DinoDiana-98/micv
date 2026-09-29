@@ -234,12 +234,12 @@ section.section-forming > .container, section.section-forming > .profile-layout 
 @keyframes form-section { from { opacity: 0; filter: blur(8px); transform: translate3d(-14px,5px,0); } to { opacity: 1; filter: blur(0); transform: none; } }
 .transition-veil {
   position: fixed; inset: 72px 0 0; z-index: 997; pointer-events: none;
-  background: radial-gradient(circle at 50% 50%, rgba(19,30,52,.84), rgba(11,16,32,.96));
-  opacity: 0; transition: opacity .38s ease;
+  background: radial-gradient(circle at 50% 50%, rgba(36,38,71,.4), rgba(11,16,32,.64));
+  opacity: 0; transition: opacity .3s ease;
   overflow: hidden;
 }
 .transition-veil.is-active { opacity: 1; }
-.transition-veil.is-returning { transition-duration: .48s; opacity: 0; }
+.transition-veil.is-returning { transition-duration: .42s; opacity: 0; }
 .dust-particle {
   position: absolute; left: var(--x); top: var(--y);
   width: var(--size); height: var(--size); border-radius: 45% 55% 60% 40%;
@@ -248,8 +248,8 @@ section.section-forming > .container, section.section-forming > .profile-layout 
 }
 .transition-veil.is-active .dust-particle { animation: dust-away .65s ease-out var(--delay) both; }
 .transition-veil.is-returning .dust-particle { animation: dust-back .6s ease-out var(--delay) both; }
-@keyframes dust-away { 0% { opacity: 0; transform: translate3d(-14px,12px,0) scale(.3); } 32% { opacity: .75; } 100% { opacity: 0; transform: translate3d(var(--dx),var(--dy),0) scale(.1); } }
-@keyframes dust-back { 0% { opacity: 0; transform: translate3d(var(--dx),var(--dy),0) scale(.1); } 55% { opacity: .65; } 100% { opacity: 0; transform: translate3d(-14px,12px,0) scale(.3); } }
+@keyframes dust-away { 0% { opacity: 0; transform: translate3d(-14px,12px,0) scale(.3); } 32% { opacity: .95; } 100% { opacity: 0; transform: translate3d(var(--dx),var(--dy),0) scale(.1); } }
+@keyframes dust-back { 0% { opacity: 0; transform: translate3d(var(--dx),var(--dy),0) scale(.1); } 55% { opacity: .85; } 100% { opacity: 0; transform: translate3d(-14px,12px,0) scale(.3); } }
 
 /* Adaptación a pantallas */
 @media (max-width: 900px) {
