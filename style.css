@@ -501,7 +501,8 @@ footer { padding: 3rem 0 1.5rem; }
     width: var(--size);
     height: var(--size);
     border-radius: 50%;
-    background: hsl(calc(155 + var(--x) / 10), 90%, 68%);
+    background: var(--accent-green-light);
+    box-shadow: 0 0 7px rgba(0, 230, 184, .7);
     opacity: 0;
     transform: translate3d(0, 0, 0) scale(1);
     will-change: transform, opacity;
@@ -543,7 +544,7 @@ footer { padding: 3rem 0 1.5rem; }
     .skill-card, .project-card { padding: 1.15rem; }
     .project-card-featured { min-height: 0; }
     .project-status { margin-bottom: .65rem; }
-    .snap-particle { width: max(1px, calc(var(--size) * .8)); height: max(1px, calc(var(--size) * .8)); }
+    .snap-particle { box-shadow: 0 0 4px rgba(0, 230, 184, .65); }
     .snap-away .snap-particle, .snap-return .snap-particle { animation-duration: 650ms; }
 }
 @media (prefers-reduced-motion: reduce) {
