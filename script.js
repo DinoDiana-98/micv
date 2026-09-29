@@ -7,6 +7,28 @@ document.addEventListener('DOMContentLoaded', () => {
   const sections = [...document.querySelectorAll('section[id]')];
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
   let changing = false;
+  const backdrop = document.getElementById('siteBackdrop');
+  const portrait = document.querySelector('.profile-visual');
+  let parallaxQueued = false;
+
+  function syncParallax() {
+    const offset = Math.min(Math.max(window.scrollY, 0), 1100);
+    if (reduceMotion.matches) {
+      backdrop?.style.removeProperty('--grid-y');
+      portrait?.style.removeProperty('--portrait-y');
+    } else {
+      backdrop?.style.setProperty('--grid-y', `${Math.round(-offset * .065)}px`);
+      portrait?.style.setProperty('--portrait-y', `${Math.round(Math.min(offset, 500) * .11)}px`);
+    }
+    parallaxQueued = false;
+  }
+  window.addEventListener('scroll', () => {
+    if (parallaxQueued) return;
+    parallaxQueued = true;
+    window.requestAnimationFrame(syncParallax);
+  }, { passive: true });
+  reduceMotion.addEventListener?.('change', syncParallax);
+  syncParallax();
 
   function closeMenu() {
     nav?.classList.remove('active');
