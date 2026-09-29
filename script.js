@@ -42,13 +42,13 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!veil) return;
     veil.replaceChildren();
     const colors = ['#78eed5', '#a887ff', '#a9d4ff', '#d8e5ff'];
-    for (let i = 0; i < 46; i++) {
+    for (let i = 0; i < 82; i++) {
       const p = document.createElement('span');
       p.className = 'dust-particle';
       const x = 8 + Math.random() * 84;
       const y = 8 + Math.random() * 84;
       const drift = (45 + Math.random() * 145) * direction;
-      p.style.cssText = `--x:${x}%;--y:${y}%;--size:${2 + Math.random()*4}px;--dx:${drift}px;--dy:${-20 - Math.random()*95}px;--delay:${Math.random()*.2}s;--dust-color:${colors[i%colors.length]}`;
+      p.style.cssText = `--x:${x}%;--y:${y}%;--size:${4 + Math.random()*5}px;--dx:${drift}px;--dy:${-20 - Math.random()*95}px;--delay:${Math.random()*.12}s;--dust-color:${colors[i%colors.length]}`;
       veil.appendChild(p);
     }
   }
