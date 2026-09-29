@@ -5,8 +5,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     setupMobileMenu();
     setupScrollEffects();
-    setupScrollAnimations();
-    setupSnapTransitions();
     setupWhatsAppButton();
     setupBackToTop();
     setupSmoothScroll();
@@ -43,75 +41,6 @@ function setupScrollEffects() {
     window.addEventListener('scroll', () => {
         topBtn.classList.toggle('visible', window.scrollY > 500);
     });
-}
-
-// Animaciones al hacer scroll
-function setupScrollAnimations() {
-    const elements = document.querySelectorAll('.fade-in');
-    if (!elements.length) return;
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-            }
-        });
-    }, { threshold: 0.15 });
-
-    elements.forEach(el => observer.observe(el));
-}
-
-
-// Transición de polvo reversible al entrar o salir de cada sección.
-function setupSnapTransitions() {
-    const sections = document.querySelectorAll('.parallax, .section-dark, footer');
-    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (!sections.length || !('IntersectionObserver' in window) || reduceMotion) return;
-
-    sections.forEach(section => {
-        section.classList.add('snap-transition-section');
-
-        const particleLayer = document.createElement('div');
-        particleLayer.className = 'snap-particles';
-        particleLayer.setAttribute('aria-hidden', 'true');
-
-        const particleCount = window.matchMedia('(max-width: 640px)').matches ? 42 : 76;
-        for (let i = 0; i < particleCount; i += 1) {
-            const particle = document.createElement('span');
-            particle.className = 'snap-particle';
-            particle.style.setProperty('--x', `${Math.random() * 100}%`);
-            particle.style.setProperty('--y', `${Math.random() * 100}%`);
-            particle.style.setProperty('--drift-x', `${(Math.random() - 0.5) * 220}px`);
-            particle.style.setProperty('--drift-y', `${(Math.random() - 0.5) * 180}px`);
-            particle.style.setProperty('--spin', `${(Math.random() - 0.5) * 180}deg`);
-            particle.style.setProperty('--delay', `${Math.random() * 260}ms`);
-            particle.style.setProperty('--size', `${1 + Math.random() * 3}px`);
-            particleLayer.appendChild(particle);
-        }
-        section.appendChild(particleLayer);
-    });
-
-    const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-            const section = entry.target;
-
-            if (entry.isIntersecting) {
-                if (section.classList.contains('snap-away')) {
-                    section.classList.remove('snap-away');
-                    section.classList.add('snap-return');
-                    window.setTimeout(() => section.classList.remove('snap-return'), 1000);
-                }
-            } else {
-                section.classList.remove('snap-return');
-                section.classList.add('snap-away');
-            }
-        });
-    }, {
-        threshold: 0.14,
-        rootMargin: '-5% 0px -5% 0px'
-    });
-
-    sections.forEach(section => observer.observe(section));
 }
 
 // WhatsApp
