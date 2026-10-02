@@ -495,10 +495,14 @@ function getExperience(id) { return experience.find((item) => item.id === id); }
 function getNode(id) { return getArea(id) || getProject(id) || getExperience(id); }
 
 function renderMapFilters() {
+  const focusedAreaId = mapFilterList.contains(document.activeElement) ? document.activeElement.dataset.areaId : null;
   mapFilterList.setAttribute("aria-label", tr("mapFilterAria"));
   mapFilterList.innerHTML = areas.map((area, index) =>
     '<button class="map-filter-button' + (mode !== "career" && selectedAreaId === area.id ? ' is-active' : '') + '" type="button" data-area-id="' + safe(area.id) + '" aria-pressed="' + String(mode !== "career" && selectedAreaId === area.id) + '"><span class="map-filter-number" aria-hidden="true">' + String(index + 1).padStart(2, "0") + '</span><span>' + safe(localized(area.title)) + '</span><span class="map-filter-arrow" aria-hidden="true">↗</span></button>'
   ).join("");
+  if (focusedAreaId) {
+    [...mapFilterList.querySelectorAll("[data-area-id]")].find((button) => button.dataset.areaId === focusedAreaId)?.focus({ preventScroll: true });
+  }
   mapExplorerHelp.textContent = tr(mode === "career" ? "mapFilterCareerHelp" : "mapFilterHelp");
   graphFrame.closest(".map-stage").dataset.mode = mode;
   document.querySelector(".map-stage-top [data-copy=mapLiveLabel]").textContent = tr(mode === "career" ? "mapLiveCareer" : "mapLiveLabel");
@@ -540,10 +544,15 @@ function selectNode(id) {
       redraw = true;
     }
   }
+  const focusInPanel = panel.contains(document.activeElement);
   selectedId = id;
   if (redraw) renderMapFilters();
   renderDirectory();
   renderPanel();
+  if (focusInPanel) {
+    const heading = panel.querySelector("h3");
+    if (heading) { heading.tabIndex = -1; heading.focus({ preventScroll: true }); }
+  }
   renderShelf();
   if (graphLoaded) {
     if (redraw) drawGraph();
@@ -603,6 +612,7 @@ function renderPanel() {
 }
 
 function renderDirectory() {
+  const focusedNodeId = directory.contains(document.activeElement) ? document.activeElement.dataset.nodeId : null;
   directory.setAttribute("aria-label", tr(mode === "career" ? "directoryJourney" : "directoryHeading"));
   const items = mode === "career" ? experience : getArea(selectedAreaId).projects.map(getProject).filter(Boolean);
   const options = items.map((item, index) => {
@@ -610,6 +620,9 @@ function renderDirectory() {
     return '<button class="map-project-option' + (selectedId === item.id ? ' is-active' : '') + '" type="button" data-node-id="' + safe(item.id) + '" aria-pressed="' + String(selectedId === item.id) + '"><span class="map-project-number" aria-hidden="true">' + String(index + 1).padStart(2, "0") + '</span><span class="map-project-copy"><strong>' + safe(localized(item.title)) + '</strong><small>' + safe(detail) + '</small></span><span class="map-project-arrow" aria-hidden="true">↗</span></button>';
   }).join("");
   directory.innerHTML = '<p class="directory-heading">' + safe(tr(mode === "career" ? "directoryJourney" : "directoryHeading")) + '</p><div class="map-project-options">' + options + '</div>';
+  if (focusedNodeId) {
+    [...directory.querySelectorAll("[data-node-id]")].find((button) => button.dataset.nodeId === focusedNodeId)?.focus({ preventScroll: true });
+  }
 }
 
 function renderShelf() {
@@ -731,6 +744,7 @@ function drawGraph() {
 
   graphSvg.setAttribute("viewBox", "0 0 " + width + " " + height);
   graphSvg.setAttribute("aria-label", tr("ariaMap"));
+  const focusedNodeId = graphSvg.contains(document.activeElement) ? document.activeElement.dataset.nodeId : null;
   graphSvg.replaceChildren();
   const title = makeSvg("title");
   title.textContent = tr("ariaMap");
@@ -790,6 +804,10 @@ function drawGraph() {
     nodeGroup.appendChild(group);
   });
   graphSvg.appendChild(nodeGroup);
+  if (focusedNodeId) {
+    const nodes = [...nodeGroup.querySelectorAll(".graph-node")];
+    (nodes.find((item) => item.dataset.nodeId === focusedNodeId) || nodes.find((item) => item.dataset.nodeId === selectedId))?.focus({ preventScroll: true });
+  }
   graphFrame.closest(".map-stage").classList.add("is-ready");
   updateGraphEmphasis();
 }
@@ -821,12 +839,17 @@ function handleNodeActivation(event) {
   const nodeElement = event.target.closest("[data-node-id]");
   if (!nodeElement) return;
   const id = nodeElement.dataset.nodeId;
-  const node = getNode(id);
   selectNode(id);
-  if (event.currentTarget === projectShelf || event.currentTarget === journeyRail) {
+  const fromShelf = event.currentTarget === projectShelf || event.currentTarget === journeyRail;
+  const fromMobileDirectory = event.currentTarget === directory && window.innerWidth <= 720;
+  if (fromShelf) {
     document.getElementById("mapa").scrollIntoView({ behavior: reduceMotion.matches ? "auto" : "smooth" });
-  } else if (event.currentTarget === directory && window.innerWidth <= 720) {
+  } else if (fromMobileDirectory) {
     document.getElementById("evidencePanel").scrollIntoView({ behavior: reduceMotion.matches ? "auto" : "smooth", block: "nearest" });
+  }
+  if (fromShelf || fromMobileDirectory) {
+    const heading = panel.querySelector("h3");
+    if (heading) { heading.tabIndex = -1; heading.focus({ preventScroll: true }); }
   }
 }
 function initToolkitReveal() {
