@@ -30,12 +30,17 @@ const UI = {
     workAside: "Proyectos y colaboraciones organizados por el problema que abordan.",
     journeyKicker: "04 / TRAYECTORIA", journeyTitle: "De la operación al producto.",
     journeyAside: "Experiencia en desarrollo, soporte, infraestructura y diseño técnico.",
-    toolkitKicker: "05 / HERRAMIENTAS", toolkitTitle: "Lo que llevo al trabajo.",
-    toolkitAside: "Tecnologías agrupadas por la tarea que me ayudan a resolver.",
+    toolkitKicker: "05 / HERRAMIENTAS", toolkitTitle: "Tecnologías que pongo en práctica.",
+    toolkitAside: "De interfaces a automatización y seguridad: mis herramientas de un vistazo.",
+    skillsFrontendDesc: "Interfaces y experiencias web", skillsBackendDesc: "Lógica, paneles y servicios",
+    skillsDataDesc: "Consultas y persistencia", skillsAutomationDesc: "Pruebas y tareas repetibles",
+    skillsSecurityDesc: "Análisis y evaluación", skillsEngineeringDesc: "Construcción y colaboración",
+    skillsDesktopDesc: "Soluciones para escritorio", skillsDesignDesc: "Prototipos y aplicaciones",
     contactKicker: "06 / SIGUIENTE CONEXIÓN", contactTitle: "¿Qué podemos construir?",
-    contactText: "Me interesa conversar sobre desarrollo web, automatización, soporte tecnológico y seguridad digital.",
+    contactText: "Puedo ayudarte a construir una aplicación, automatizar un proceso o revisar cómo protegerlo. Cuéntame tu idea.",
     contactButton: "Escríbeme", contactFab: "Contacto", contactClose: "Cerrar contacto",
-    contactEndTitle: "¿Seguimos la conversación?", contactEndText: "Si mi trabajo conecta con lo que buscas, conversemos.",
+    contactLocation: "Trujillo, Perú · abierta a proyectos", contactDirect: "CORREO DIRECTO",
+    contactEndTitle: "¿Tienes un reto en mente?", contactEndText: "Cuéntame qué necesitas; me gusta convertir problemas concretos en soluciones útiles.",
     footerText: "Desarrolladora Full Stack Junior · Trujillo, Perú",
     modeOverview: "Vista rápida: una selección de proyectos y las áreas que los conectan.",
     modeMethod: "Cómo trabajo: escucho la necesidad, diseño una solución, la construyo y compruebo que funcione.",
@@ -90,12 +95,17 @@ const UI = {
     workAside: "Projects and collaborations grouped by the problems they address.",
     journeyKicker: "04 / EXPERIENCE", journeyTitle: "From operations to product.",
     journeyAside: "Experience across development, support, infrastructure, and technical design.",
-    toolkitKicker: "05 / TOOLKIT", toolkitTitle: "What I bring to the work.",
-    toolkitAside: "Tools grouped by the tasks they help me solve.",
+    toolkitKicker: "05 / TOOLKIT", toolkitTitle: "Technologies I put to work.",
+    toolkitAside: "From interfaces to automation and security: my tools at a glance.",
+    skillsFrontendDesc: "Interfaces and web experiences", skillsBackendDesc: "Logic, dashboards and services",
+    skillsDataDesc: "Queries and persistence", skillsAutomationDesc: "Tests and repeatable tasks",
+    skillsSecurityDesc: "Analysis and assessment", skillsEngineeringDesc: "Building and collaborating",
+    skillsDesktopDesc: "Desktop solutions", skillsDesignDesc: "Prototypes and applications",
     contactKicker: "06 / NEXT CONNECTION", contactTitle: "What could we build?",
-    contactText: "I’m interested in conversations about web development, automation, technology support, and digital security.",
-    contactButton: "Send me a message", contactFab: "Contact", contactClose: "Close contact panel",
-    contactEndTitle: "Shall we keep talking?", contactEndText: "If my work matches what you need, let’s talk.",
+    contactText: "I can help build an app, automate a process, or review how to protect it. Tell me about your idea.",
+    contactButton: "Email me", contactFab: "Contact", contactClose: "Close contact panel",
+    contactLocation: "Trujillo, Peru · open to projects", contactDirect: "DIRECT EMAIL",
+    contactEndTitle: "Have a challenge in mind?", contactEndText: "Tell me what you need; I enjoy turning real problems into useful solutions.",
     footerText: "Junior Full Stack Developer · Trujillo, Peru",
     modeOverview: "A quick view: selected projects and the areas that connect them.",
     modeMethod: "How I work: understand the need, shape a solution, build it, and check that it works.",
@@ -612,14 +622,15 @@ const techGlyphs = {
   browser: '<svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="18" rx="3"/><path d="M2 8h20M7 5.5h.01M10 5.5h.01m2 6 3 2.5-3 2.5"/></svg>'
 };
 function renderToolkit() {
-  toolkitGrid.innerHTML = toolkit.map((item) => {
-    const chips = item.tech.map((tech, index) => {
+  toolkitGrid.innerHTML = toolkit.map((item, rowIndex) => {
+    const technologies = item.tech.map((tech, index) => {
       const source = tech.icon || (tech.slug ? "https://cdn.simpleicons.org/" + tech.slug + "/" + tech.color : "");
-      const image = source ? '<img src="' + safe(source) + '" alt="" loading="lazy" decoding="async" width="22" height="22">' : "";
+      const image = source ? '<img src="' + safe(source) + '" alt="" loading="lazy" decoding="async" width="28" height="28">' : "";
       const fallback = '<span class="tech-fallback">' + (techGlyphs[tech.glyph] || techGlyphs.code) + '</span>';
-      return '<span class="tech-chip" style="--tech-index:' + index + '"><span class="tech-icon' + (source ? "" : " is-fallback") + '" style="--brand-color:#' + safe(tech.color) + '" aria-hidden="true">' + image + fallback + '</span><span class="tech-name">' + safe(tech.name) + '</span></span>';
+      return '<li class="tech-item" style="--tech-index:' + index + '"><span class="tech-icon' + (source ? "" : " is-fallback") + '" style="--brand-color:#' + safe(tech.color) + '" aria-hidden="true">' + image + fallback + '</span><span class="tech-name">' + safe(tech.name) + '</span></li>';
     }).join("");
-    return '<article class="tool-card"><h3>' + safe(tr(item.key)) + '</h3><div class="tech-list">' + chips + '</div></article>';
+    const rowId = "tool-row-" + rowIndex;
+    return '<section class="tool-row" style="--row-index:' + rowIndex + '" aria-labelledby="' + rowId + '"><div class="tool-row-heading"><span class="tool-row-index" aria-hidden="true">' + String(rowIndex + 1).padStart(2, "0") + '</span><div><h3 id="' + rowId + '">' + safe(tr(item.key)) + '</h3><p>' + safe(tr(item.key + "Desc")) + '</p></div></div><ul class="tech-list">' + technologies + '</ul></section>';
   }).join("");
   toolkitGrid.querySelectorAll(".tech-icon img").forEach((image) => {
     image.addEventListener("error", () => {
@@ -631,7 +642,6 @@ function renderToolkit() {
     }, { once: true });
   });
 }
-
 function graphNodes() {
   return mode === "career" ? experience.slice() : modeProjects().concat(modeAreas());
 }
@@ -866,7 +876,7 @@ function initContactWidget() {
     contactPanel.setAttribute("aria-hidden", "true");
   };
   contactFab.addEventListener("click", () => {
-    if (reason === "manual") close(true);
+    if (contactWidget.classList.contains("is-open")) close(true);
     else open("manual");
   });
   contactClose.addEventListener("click", () => {
@@ -910,8 +920,11 @@ function initContactWidget() {
   }
   const heroObserver = new IntersectionObserver((entries) => {
     const visible = !entries[0].isIntersecting || atEnd;
-    setVisible(visible);
+    if (!visible && contactWidget.contains(document.activeElement)) {
+      document.querySelector(".hero-actions a")?.focus({ preventScroll: true });
+    }
     if (!visible && reason) close(false);
+    setVisible(visible);
   }, { threshold: .1 });
   heroObserver.observe(document.querySelector(".hero"));
   const endObserver = new IntersectionObserver((entries) => {
