@@ -166,27 +166,6 @@ img { display: block; max-width: 100%; }
   line-height: 1.08; letter-spacing: -.055em; font-weight: 670;
 }
 .section-aside { max-width: 365px; margin: 0 0 3px; color: var(--muted); font-size: .82rem; line-height: 1.65; }
-.route-picker { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
-.route-card {
-  min-width: 0; min-height: 89px; padding: 15px 15px; display: grid;
-  grid-template-columns: 31px minmax(0,1fr) 17px; align-items: start; gap: 11px;
-  text-align: left; border: 1px solid var(--line); border-radius: 13px;
-  background: var(--page-raised); cursor: pointer;
-  transition: background .2s ease, border-color .2s ease, transform .2s ease;
-}
-.route-card:hover { transform: translateY(-2px); border-color: var(--line-strong); }
-.route-card.is-active { background: var(--accent-soft); border-color: color-mix(in srgb, var(--accent) 66%, var(--line)); }
-.route-number {
-  width: 27px; height: 27px; display: grid; place-items: center;
-  border-radius: 8px; background: var(--panel-strong); color: var(--muted);
-  font-size: .69rem; font-weight: 800;
-}
-.route-card.is-active .route-number { color: var(--accent-ink); background: var(--accent); }
-.route-card strong { display: block; font-size: .79rem; line-height: 1.35; }
-.route-card small { display: block; margin-top: 5px; color: var(--muted); font-size: .66rem; line-height: 1.4; }
-.route-arrow { justify-self: end; color: var(--faint); font-size: .82rem; }
-.route-card.is-active .route-arrow { color: var(--accent); }
-.route-caption { min-height: 23px; margin: 13px 0 14px; color: var(--muted); font-size: .74rem; }
 .map-layout { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(270px, .75fr); gap: 11px; align-items: stretch; }
 .map-stage, .evidence-panel {
   min-width: 0; border: 1px solid var(--line); border-radius: var(--radius);
@@ -610,16 +589,6 @@ html { font-size: 17px; }
 .portrait-coordinate { top: -5px; right: -9px; }
 .portrait-index { bottom: -9px; right: 3px; }
 
-.map-guide {
-  display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 8px; margin: 0 0 17px; padding: 0; list-style: none;
-}
-.map-guide li {
-  min-height: 48px; padding: 9px 12px; display: flex; align-items: center; gap: 10px;
-  border: 1px solid var(--line); border-radius: 10px; background: var(--page-raised);
-  color: var(--ink); font-size: .82rem; font-weight: 650;
-}
-.map-guide b { color: var(--accent); font-size: .74rem; letter-spacing: .08em; }
 .graph-frame { min-height: var(--graph-height, 455px); }
 #evidenceGraph { height: var(--graph-height, 455px); }
 .graph-placeholder { min-height: var(--graph-height, 455px); }
@@ -956,3 +925,73 @@ html { font-size: 17px; }
 .graph-node .node-label { font-size: 13.7px; font-weight: 740; }
 .graph-node .node-sub { font-size: 11px; font-weight: 600; }
 .graph-node[data-kind="area"] rect { fill: var(--panel-strong); }
+
+
+/* El mapa empieza con una sola decisión y muestra únicamente proyectos relacionados. */
+.map-explorer {
+  margin-bottom: 16px; padding: 16px;
+  border: 1px solid var(--line); border-radius: 17px; background: var(--panel);
+}
+.map-explorer-intro {
+  margin-bottom: 13px; display: flex; align-items: baseline; justify-content: space-between; gap: 12px;
+}
+.map-explorer-intro strong {
+  color: var(--ink); font-size: 1rem; font-weight: 790; letter-spacing: -.02em;
+}
+.map-explorer-intro p { margin: 0; color: var(--muted); font-size: .82rem; }
+.map-filter-list {
+  display: grid; grid-template-columns: repeat(4, minmax(0, 1fr));
+  overflow: hidden; border: 1px solid var(--line-strong); border-radius: 11px;
+}
+.map-filter-button {
+  min-width: 0; min-height: 66px; padding: 10px 13px;
+  display: grid; grid-template-columns: 24px minmax(0, 1fr) 14px; align-items: center; gap: 8px;
+  border: 0; border-right: 1px solid var(--line); background: var(--page-raised);
+  color: var(--ink); text-align: left; font-size: .83rem; font-weight: 720; line-height: 1.3;
+  cursor: pointer; transition: background-color .18s ease, color .18s ease;
+}
+.map-filter-button:last-child { border-right: 0; }
+.map-filter-button:hover { background: var(--accent-soft); }
+.map-filter-button.is-active {
+  color: var(--accent); background: var(--accent-soft);
+  box-shadow: inset 0 -3px 0 var(--accent);
+}
+.map-filter-number {
+  color: var(--muted); font: 800 .68rem/1 ui-monospace, SFMono-Regular, Consolas, monospace;
+}
+.map-filter-button.is-active .map-filter-number { color: var(--accent); }
+.map-filter-arrow { justify-self: end; color: var(--muted); font-size: .88rem; }
+.map-filter-button.is-active .map-filter-arrow { color: var(--accent); }
+.map-stage-top > span:first-child { color: var(--ink); font-size: .72rem; }
+.map-instruction { color: var(--muted); font-size: .8rem; }
+.map-project-options { display: grid; gap: 8px; }
+.map-project-option {
+  width: 100%; min-height: 68px; padding: 10px 13px;
+  display: grid; grid-template-columns: 25px minmax(0, 1fr) 18px; align-items: center; gap: 10px;
+  border: 1px solid var(--line); border-radius: 10px; background: var(--panel);
+  color: var(--ink); text-align: left; cursor: pointer;
+}
+.map-project-option:hover, .map-project-option.is-active {
+  border-color: var(--accent); background: var(--accent-soft);
+}
+.map-project-number {
+  color: var(--accent); font: 800 .69rem/1 ui-monospace, SFMono-Regular, Consolas, monospace;
+}
+.map-project-copy { min-width: 0; display: grid; gap: 3px; }
+.map-project-copy strong { font-size: .85rem; line-height: 1.3; }
+.map-project-copy small { color: var(--muted); font-size: .72rem; line-height: 1.3; }
+.map-project-arrow { justify-self: end; color: var(--accent); }
+@media (max-width: 720px) {
+  .map-explorer-intro { align-items: start; flex-direction: column; gap: 3px; }
+  .map-explorer-intro p { font-size: .81rem; }
+  .map-filter-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .map-filter-button { min-height: 64px; font-size: .81rem; }
+  .map-filter-button:nth-child(2) { border-right: 0; }
+  .map-filter-button:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
+  .map-directory { padding: 16px; }
+}
+@media (max-width: 500px) {
+  .map-explorer { padding: 12px; }
+  .map-filter-button { padding: 9px; grid-template-columns: 18px minmax(0, 1fr) 12px; gap: 5px; }
+  .map-filter-number { font-size: .62rem; }
+}
