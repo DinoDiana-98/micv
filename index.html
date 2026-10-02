@@ -1,232 +1,169 @@
-<!DOCTYPE html>
-<html lang="es">
+<!doctype html>
+<html lang="es" data-theme="dark">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Leidy Diana Principe | Desarrolladora Full Stack Junior</title>
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=20260929-4">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark light">
+  <meta name="theme-color" content="#10141d">
+  <meta name="description" content="Leidy Diana Príncipe Quispe: desarrollo web, automatización, soporte tecnológico y ciberseguridad.">
+  <title>Leidy Diana Príncipe — mapa profesional</title>
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link rel="preload" as="image" href="img1.jpeg" fetchpriority="high">
+  <link rel="stylesheet" href="style.css?v=20261001-evidence-map">
+  <script src="script.js?v=20261001-evidence-map" defer></script>
 </head>
 <body>
-    <div class="site-backdrop" id="siteBackdrop" aria-hidden="true"><div class="backdrop-grid"></div><div class="backdrop-rule"></div></div>
-
-    <!-- Navegación -->
-    <nav class="nav" id="navbar">
-        <div class="container nav-content">
-            <a href="#" class="logo">Leidy<span>.</span></a>
-            <button class="mobile-menu-btn" id="mobileMenuBtn" type="button" aria-label="Abrir menú" aria-expanded="false"><i class="fas fa-bars"></i></button>
-            <ul class="nav-links" id="navLinks">
-                <li><a href="#about">Sobre mí</a></li>
-                <li><a href="#skills">Habilidades</a></li>
-                <li><a href="#experience">Experiencia</a></li>
-                <li><a href="#projects">Proyectos</a></li>
-                <li><a href="#contact">Contacto</a></li>
-            </ul>
-        </div>
+  <a class="skip-link" href="#main" data-copy="skip">Saltar al contenido</a>
+  <header class="topbar">
+    <a class="brand" href="#top" aria-label="Leidy Diana Príncipe, inicio">
+      <span class="brand-mark" aria-hidden="true">LD</span>
+      <span class="brand-name">Leidy Diana<small>MAPA PROFESIONAL</small></span>
+    </a>
+    <nav class="main-nav" aria-label="Navegación principal">
+      <a href="#mapa" data-copy="navMap">Mapa</a>
+      <a href="#trayectoria" data-copy="navJourney">Trayectoria</a>
+      <a href="#contacto" data-copy="navContact">Contacto</a>
     </nav>
+    <div class="utilities">
+      <button class="utility-button language-button" id="languageToggle" type="button" aria-label="Switch to English">EN</button>
+      <button class="utility-button theme-button" id="themeToggle" type="button" aria-label="Cambiar a modo claro" title="Cambiar tema">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v2m0 14v2M3 12h2m14 0h2M5.64 5.64l1.42 1.42m9.88 9.88 1.42 1.42m0-12.72-1.42 1.42m-9.88 9.88-1.42 1.42M16.5 12a4.5 4.5 0 1 1-9 0 4.5 4.5 0 0 1 9 0Z"/></svg>
+      </button>
+    </div>
+  </header>
 
-    <!-- Presentación -->
-    <section class="hero" id="about" aria-labelledby="profile-title">
-        <div class="container profile-layout">
-            <div class="profile-visual">
-                <div class="portrait-frame">
-                    <img src="img1.jpeg" alt="Retrato de Leidy Diana Principe Quispe" class="profile-img">
-                </div>
-                <div class="profile-note"><span class="status-dot"></span> Desarrollo web · Soporte · Seguridad</div>
-            </div>
-            <div class="profile-copy">
-                <span class="eyebrow"><span class="eyebrow-line"></span> Sobre mí</span>
-                <h1 id="profile-title">Hola, soy <span>Leidy Diana<br>Príncipe Quispe.</span></h1>
-                <p class="profile-role">Desarrolladora Full Stack Junior</p>
-                <p class="profile-about-text">Programo aplicaciones web y automatizaciones que resuelven problemas reales. Me gusta escuchar a quienes usan el sistema, diseñar una solución clara, construirla y comprobar que funcione. También estudio ciberseguridad para cuidar los datos desde el inicio.</p>
-                <div class="hero-buttons">
-                    <a href="#projects" class="btn btn-primary"><i class="fas fa-arrow-right" aria-hidden="true"></i> Ver proyectos</a>
-                    <a href="#contact" class="btn btn-secondary"><i class="fas fa-paper-plane" aria-hidden="true"></i> Contacto</a>
-                </div>
-            </div>
+  <main id="main">
+    <section class="hero section-shell" id="top" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="overline"><span class="overline-dot"></span><span data-copy="heroOverline">DESARROLLO · AUTOMATIZACIÓN · SEGURIDAD</span><span class="overline-location">TRUJILLO, PE</span></p>
+        <h1 id="hero-title" data-copy="heroTitle">Conecto ideas, sistemas y personas para resolver problemas reales.</h1>
+        <p class="hero-intro" data-copy="heroIntro">Soy Leidy Diana Príncipe Quispe, desarrolladora full stack junior. Me interesa construir aplicaciones útiles, mejorar procesos y aplicar seguridad desde el inicio.</p>
+        <div class="hero-actions">
+          <a class="action action-primary" href="#mapa"><span data-copy="heroExplore">Explorar mi mapa</span><span aria-hidden="true">↘</span></a>
+          <a class="action action-quiet" href="mailto:dprincipe.q@gmail.com"><span data-copy="heroContact">Hablemos</span><span aria-hidden="true">↗</span></a>
         </div>
+        <div class="hero-meta">
+          <span><i class="meta-pulse" aria-hidden="true"></i><span data-copy="heroRole">Desarrolladora Full Stack Junior</span></span>
+          <span class="meta-divider" aria-hidden="true"></span>
+          <span data-copy="heroAvailability">Abierta a nuevos retos</span>
+        </div>
+      </div>
+      <div class="hero-portrait">
+        <div class="portrait-coordinate" aria-hidden="true">08°06' S<br>79°02' W</div>
+        <div class="portrait-orbit orbit-one" aria-hidden="true"></div>
+        <div class="portrait-orbit orbit-two" aria-hidden="true"></div>
+        <figure class="portrait-frame">
+          <img src="img1.jpeg" width="420" height="420" fetchpriority="high" alt="Retrato de Leidy Diana Príncipe Quispe">
+          <figcaption><span class="portrait-status"></span><span data-copy="portraitCaption">Construyo, pruebo y aprendo.</span></figcaption>
+        </figure>
+        <span class="portrait-index" aria-hidden="true">01 / 04</span>
+      </div>
     </section>
 
-    <!-- Habilidades -->
-    <section id="skills" class="section-dark">
-        <div class="container">
-            <h2 class="section-title">Tecnologías y herramientas</h2>
-            <div class="skills-grid">
-                <article class="skill-card fade-in"><i class="fas fa-laptop-code" aria-hidden="true"></i><h3>Frontend</h3><p>HTML, CSS, JavaScript, Angular y Tailwind CSS.</p></article>
-                <article class="skill-card fade-in"><i class="fab fa-laravel" aria-hidden="true"></i><h3>Backend</h3><p>PHP, Laravel 13, Livewire y Filament.</p></article>
-                <article class="skill-card fade-in"><i class="fas fa-database" aria-hidden="true"></i><h3>Bases de datos</h3><p>SQL Server, MariaDB y consultas SQL.</p></article>
-                <article class="skill-card fade-in"><i class="fab fa-python" aria-hidden="true"></i><h3>Automatización y QA</h3><p>Python, Playwright y Excel.</p></article>
-                <article class="skill-card fade-in"><i class="fas fa-cubes" aria-hidden="true"></i><h3>Entorno de desarrollo</h3><p>Docker, WSL2, Composer, npm, Git y GitHub.</p></article>
-                <article class="skill-card fade-in"><i class="fas fa-shield-alt" aria-hidden="true"></i><h3>Ciberseguridad</h3><p>Wireshark, Nmap, Burp Suite, OWASP ZAP, Kali Linux y Metasploit.</p></article>
-                <article class="skill-card fade-in"><i class="fas fa-desktop" aria-hidden="true"></i><h3>Integración de escritorio</h3><p>C# WinForms, .NET 8 y WebView2.</p></article>
-                <article class="skill-card fade-in"><i class="fab fa-figma" aria-hidden="true"></i><h3>Diseño y desarrollo móvil</h3><p>Figma y Android Studio.</p></article>
-            </div>
+    <section class="explore-section section-shell" id="mapa" aria-labelledby="map-title">
+      <div class="section-heading">
+        <div>
+          <p class="section-kicker" data-copy="mapKicker">02 / MAPA DE EVIDENCIA</p>
+          <h2 id="map-title" data-copy="mapTitle">Elige qué quieres descubrir.</h2>
         </div>
+        <p class="section-aside" data-copy="mapAside">Cada habilidad se conecta con trabajo concreto. Selecciona un nodo para ver el contexto.</p>
+      </div>
+
+      <div class="route-picker" role="group" aria-label="Elige una ruta">
+        <button class="route-card is-active" type="button" data-mode="overview" aria-pressed="true">
+          <span class="route-number">A</span><span><strong data-copy="routeQuickTitle">Tengo 30 segundos</strong><small data-copy="routeQuickText">Lo esencial y mis proyectos más representativos</small></span><span class="route-arrow" aria-hidden="true">↗</span>
+        </button>
+        <button class="route-card" type="button" data-mode="method" aria-pressed="false">
+          <span class="route-number">B</span><span><strong data-copy="routeMethodTitle">Quiero ver cómo trabajo</strong><small data-copy="routeMethodText">Decisiones, herramientas y forma de resolver</small></span><span class="route-arrow" aria-hidden="true">↗</span>
+        </button>
+        <button class="route-card" type="button" data-mode="career" aria-pressed="false">
+          <span class="route-number">C</span><span><strong data-copy="routeCareerTitle">Quiero conocer mi recorrido</strong><small data-copy="routeCareerText">Experiencia laboral contada como una secuencia</small></span><span class="route-arrow" aria-hidden="true">↗</span>
+        </button>
+      </div>
+      <p class="route-caption" id="routeCaption" aria-live="polite"></p>
+
+      <div class="map-layout">
+        <div class="map-stage">
+          <div class="map-stage-top">
+            <span><span class="signal-dot"></span><span data-copy="mapLiveLabel">RED DE EXPERIENCIA</span></span>
+            <span class="map-instruction" data-copy="mapInstruction">Clic o teclado para explorar</span>
+          </div>
+          <div class="graph-frame" id="graphFrame">
+            <div class="graph-placeholder" id="graphPlaceholder"><span class="placeholder-code" aria-hidden="true">01<br>02<br>03</span><span data-copy="graphPlaceholder">Conectando áreas con proyectos…</span></div>
+            <svg id="evidenceGraph" role="group" aria-label="Mapa interactivo de proyectos y habilidades"></svg>
+            <div class="graph-footnote"><span data-copy="graphField">PROYECTOS</span><span class="graph-key"><i class="key-line" aria-hidden="true"></i><span data-copy="graphConnection">conexiones verificables</span></span></div>
+          </div>
+          <div class="map-directory" id="mapDirectory" aria-label="Nodos del mapa">
+            <p class="directory-heading" data-copy="directoryHeading">Explorar por área</p>
+            <div class="directory-groups">
+              <div class="directory-group"><span data-copy="areaWeb">Aplicaciones & producto</span><button type="button" data-node-id="web">Ver área</button></div>
+              <div class="directory-group"><span data-copy="areaQuality">Automatización & calidad</span><button type="button" data-node-id="quality">Ver área</button></div>
+              <div class="directory-group"><span data-copy="areaSecurity">Seguridad & DevSecOps</span><button type="button" data-node-id="security">Ver área</button></div>
+              <div class="directory-group"><span data-copy="areaSupport">Soporte & sistemas</span><button type="button" data-node-id="support">Ver área</button></div>
+            </div>
+          </div>
+        </div>
+
+        <aside class="evidence-panel" id="evidencePanel" aria-live="polite" aria-label="Detalle seleccionado">
+          <div class="panel-topline"><span data-copy="panelLabel">FICHA DE EVIDENCIA</span><span id="panelCounter">01 — 07</span></div>
+          <div id="panelContent">
+            <p class="panel-type" data-copy="panelDefaultType">PUNTO DE PARTIDA</p>
+            <h3 data-copy="panelDefaultTitle">Una trayectoria entre construir y cuidar.</h3>
+            <p data-copy="panelDefaultBody">Elige una de las rutas o selecciona un nodo para ver cómo se conectan mis proyectos, herramientas y experiencia.</p>
+            <div class="panel-hint"><span aria-hidden="true">↙</span><span data-copy="panelDefaultHint">Tu exploración empieza en el mapa</span></div>
+          </div>
+        </aside>
+      </div>
+      <div class="map-legend"><span><i class="legend-mark legend-area"></i><span data-copy="legendAreas">Áreas</span></span><span><i class="legend-mark legend-work"></i><span data-copy="legendProjects">Proyectos</span></span><span><i class="legend-mark legend-role"></i><span data-copy="legendRoles">Experiencia</span></span></div>
     </section>
 
-    <!-- Experiencia -->
-    <section id="experience" class="section-dark">
-        <div class="container">
-            <h2 class="section-title">Experiencia Laboral</h2>
-            <div class="timeline">
-                <div class="timeline-item fade-in">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-box">
-                        <span class="timeline-date">28 Mar 2026 - 28 Sep 2026</span>
-                        <h3>Programadora y Analista de Soporte</h3>
-                        <p class="timeline-company">SOLTECJS</p>
-                        <ul class="timeline-list">
-                            <li><i class="fas fa-check"></i>Desarrollo de soluciones web con PHP y Laravel 13, utilizando Livewire, Filament, Tailwind CSS y Vite.</li>
-                            <li><i class="fas fa-check"></i>Implementación y análisis de módulos de INMOSOFT, incluyendo Árbol de Ventas y Nueva Venta.</li>
-                            <li><i class="fas fa-check"></i>Trabajo con SQL Server y MariaDB, automatización con Python y Playwright, y soporte técnico a usuarios.</li>
-                            <li><i class="fas fa-star"></i><strong>Herramientas:</strong> Docker, WSL2, Composer, npm, Git y GitHub.</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="timeline-item fade-in">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-box">
-                        <span class="timeline-date">Nov 2023 - Ene 2025</span>
-                        <h3>Desarrolladora de Software & Soporte Tecnológico</h3>
-                        <p class="timeline-company">Rolex Constructores SAC</p>
-                        <ul class="timeline-list">
-                            <li><i class="fas fa-check"></i>Implementación de soluciones tecnológicas para optimizar procesos.</li>
-                            <li><i class="fas fa-check"></i>Gestión y mantenimiento de infraestructura tecnológica.</li>
-                            <li><i class="fas fa-star"></i><strong>Logro:</strong> App móvil con geolocalización para control de asistencia.</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="timeline-item fade-in">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-box">
-                        <span class="timeline-date">Jul 2023 - Oct 2023</span>
-                        <h3>Diseñadora BIM</h3>
-                        <p class="timeline-company">Arqkon</p>
-                        <p>Diseño de planos para colegios del Bicentenario con estándares BIM internacionales.</p>
-                    </div>
-                </div>
-                <div class="timeline-item fade-in">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-box">
-                        <span class="timeline-date">Jun 2022 - Feb 2023</span>
-                        <h3>Prácticas Preprofesionales</h3>
-                        <p class="timeline-company">Universidad Nacional de Trujillo - Facultad de Enfermería</p>
-                        <ul class="timeline-list">
-                            <li><i class="fas fa-check"></i>Desarrollo integral del sitio web institucional.</li>
-                            <li><i class="fas fa-check"></i>Punto clave en acreditación SINEACE.</li>
-                            <li><a href="https://dinodiana-98.github.io/facenf/" target="_blank" rel="noopener noreferrer" class="inline-link">Ver proyecto →</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <section class="work-section section-shell" id="proyectos" aria-labelledby="work-title">
+      <div class="section-heading compact-heading">
+        <div><p class="section-kicker" data-copy="workKicker">03 / TRABAJO SELECCIONADO</p><h2 id="work-title" data-copy="workTitle">Pruebas, no solo etiquetas.</h2></div>
+        <p class="section-aside" data-copy="workAside">Proyectos y colaboraciones organizados por el problema que abordan.</p>
+      </div>
+      <div class="project-shelf" id="projectShelf"></div>
     </section>
 
-    <!-- Proyectos -->
-    <section id="projects" class="section-dark">
-        <div class="container">
-            <h2 class="section-title">Proyectos destacados</h2>
-            <div class="projects-grid">
-                <article class="project-card project-card-featured fade-in">
-                    <div class="project-top">
-                        <span class="project-status"><span class="status-dot"></span> En desarrollo</span>
-                        <span class="project-icon-wrap"><i class="fas fa-headset" aria-hidden="true"></i></span>
-                    </div>
-                    <h3>Centro de Atención</h3>
-                    <p>Aplicación web para organizar atenciones y dar seguimiento a solicitudes de soporte. En desarrollo con Laravel y herramientas del ecosistema PHP.</p>
-                    <div class="project-tags"><span>Laravel</span><span>PHP</span><span>Aplicación web</span></div>
-                </article>
-                <article class="project-card project-card-featured fade-in">
-                    <div class="project-top">
-                        <span class="project-status"><span class="status-dot"></span> En desarrollo</span>
-                        <span class="project-icon-wrap"><i class="fas fa-calendar-check" aria-hidden="true"></i></span>
-                    </div>
-                    <h3>Sistema de Gestión Cinapri</h3>
-                    <p>Sistema para gestionar negocios, sedes, servicios, profesionales y reservas. Primera versión en Laravel 13 con datos JSON de prueba; PostgreSQL está previsto para la migración.</p>
-                    <div class="project-tags"><span>Laravel 13</span><span>JSON de prueba</span><span>PostgreSQL previsto</span></div>
-                </article>
-                <div class="project-card fade-in">
-                    <i class="fas fa-shield-alt project-icon"></i>
-                    <h3>Laboratorio OWASP Top 10</h3>
-                    <p>Análisis de vulnerabilidades web con OWASP ZAP y Burp Suite. Reporte CVSS v3.1 con plan de remediación.</p>
-                    <div class="project-tags"><span>OWASP ZAP</span><span>Kali Linux</span><span>CVSS v3.1</span></div>
-                </div>
-                <div class="project-card fade-in">
-                    <i class="fas fa-code-branch project-icon"></i>
-                    <h3>Pipeline DevSecOps</h3>
-                    <p>CI/CD con GitHub Actions: Gitleaks, Bandit, Trivy. Shift Left Security.</p>
-                    <div class="project-tags"><span>GitHub Actions</span><span>SAST</span><span>Trivy</span></div>
-                    <a href="https://github.com/DinoDiana-98/devsecops-security-pipeline" target="_blank" rel="noopener noreferrer" class="project-link">Ver repositorio →</a>
-                </div>
-                <div class="project-card fade-in">
-                    <i class="fas fa-globe project-icon"></i>
-                    <h3>Portafolio web personal</h3>
-                    <p>Sitio web estático desarrollado con HTML, CSS y JavaScript, publicado mediante GitHub Pages.</p>
-                    <div class="project-tags"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
-                    <a href="https://dinodiana-98.github.io/micv/" target="_blank" rel="noopener noreferrer" class="project-link">Ver portafolio →</a>
-                </div>
-                <div class="project-card fade-in">
-                    <i class="fab fa-tiktok project-icon"></i>
-                    <h3>CINAPRI EDU</h3>
-                    <p><strong>Sin fines de lucro.</strong> Contenido educativo sobre prevención de estafas digitales y ciberhigiene.</p>
-                    <div class="project-tags"><span>Phishing</span><span>Ing. Social</span></div>
-                    <a href="https://www.tiktok.com/@cinapri.pq" target="_blank" rel="noopener noreferrer" class="project-link">Ir al Canal →</a>
-                </div>
-            </div>
-        </div>
+    <section class="journey-section section-shell" id="trayectoria" aria-labelledby="journey-title">
+      <div class="section-heading compact-heading">
+        <div><p class="section-kicker" data-copy="journeyKicker">04 / TRAYECTORIA</p><h2 id="journey-title" data-copy="journeyTitle">De la operación al producto.</h2></div>
+        <p class="section-aside" data-copy="journeyAside">Experiencia en desarrollo, soporte, infraestructura y diseño técnico.</p>
+      </div>
+      <div class="journey-rail" id="journeyRail"></div>
     </section>
 
-    <!-- Contacto -->
-    <section id="contact" class="section-dark">
-        <div class="container">
-            <h2 class="section-title">¡Contáctame!</h2>
-            <div class="contact-card fade-in">
-                <i class="fas fa-paper-plane contact-icon" aria-hidden="true"></i>
-                <div class="contact-copy">
-                    <h3>Disponibilidad inmediata</h3>
-                    <p>Estoy lista para contribuir en desarrollo web y ciberseguridad.</p>
-                </div>
-                <a href="mailto:dprincipe.q@gmail.com" class="btn btn-primary">Enviar mensaje</a>
-            </div>
-        </div>
+    <section class="toolkit-section section-shell" id="herramientas" aria-labelledby="toolkit-title">
+      <div class="section-heading compact-heading">
+        <div><p class="section-kicker" data-copy="toolkitKicker">05 / HERRAMIENTAS</p><h2 id="toolkit-title" data-copy="toolkitTitle">Lo que llevo al trabajo.</h2></div>
+        <p class="section-aside" data-copy="toolkitAside">Tecnologías agrupadas por la tarea que me ayudan a resolver.</p>
+      </div>
+      <div class="toolkit-grid" id="toolkitGrid"></div>
     </section>
 
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-grid">
-                <div>
-                    <h3>Leidy Diana Príncipe</h3>
-                    <p>Desarrolladora Full Stack Junior interesada en ciberseguridad y educación digital.</p>
-                    <div class="social-links">
-                        <a href="mailto:dprincipe.q@gmail.com"><i class="fas fa-envelope"></i></a>
-                        <a href="https://www.linkedin.com/in/leidy-diana-principe-quispe-8ba739131/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="https://www.tiktok.com/@cinapri.pq" target="_blank" rel="noopener noreferrer"><i class="fab fa-tiktok"></i></a>
-                        <a href="https://github.com/DinoDiana-98" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
-                        <a href="https://dinodiana-98.github.io/micv/" target="_blank" rel="noopener noreferrer"><i class="fas fa-globe"></i></a>
-                    </div>
-                </div>
-                <div>
-                    <h3>Contacto</h3>
-                    <p><i class="fas fa-map-marker-alt"></i> Trujillo, Perú</p>
-                    <p><i class="fas fa-phone"></i> +51 904 908 206</p>
-                    <p><i class="fas fa-envelope"></i> dprincipe.q@gmail.com</p>
-                    
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p><i class="fas fa-code"></i> Diseñado con dedicación por Leidy Diana Principe Quispe © 2026</p>
-            </div>
-        </div>
-    </footer>
+    <section class="contact-section section-shell" id="contacto" aria-labelledby="contact-title">
+      <div class="contact-orbit" aria-hidden="true"><span></span><span></span><span></span></div>
+      <div class="contact-copy">
+        <p class="section-kicker" data-copy="contactKicker">06 / SIGUIENTE CONEXIÓN</p>
+        <h2 id="contact-title" data-copy="contactTitle">¿Qué podemos construir?</h2>
+        <p data-copy="contactText">Me interesa conversar sobre desarrollo web, automatización, soporte tecnológico y seguridad digital.</p>
+      </div>
+      <a class="action action-primary contact-action" href="mailto:dprincipe.q@gmail.com"><span data-copy="contactButton">Escríbeme</span><span aria-hidden="true">↗</span></a>
+    </section>
+  </main>
 
-    <!-- Botones flotantes -->
-    <a href="#" class="floating-btn whatsapp-btn" id="whatsappBtn" aria-label="Escribir por WhatsApp"><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
-    <a href="#about" class="floating-btn top-btn" id="topBtn" aria-label="Volver al inicio"><i class="fas fa-arrow-up" aria-hidden="true"></i></a>
-
-    <div class="transition-veil" id="transitionVeil" aria-hidden="true"></div>
-    <script src="script.js?v=20260929-3"></script>
+  <footer class="footer section-shell">
+    <div class="footer-name"><span class="brand-mark" aria-hidden="true">LD</span><span>Leidy Diana Príncipe Quispe</span></div>
+    <p data-copy="footerText">Desarrolladora Full Stack Junior · Trujillo, Perú</p>
+    <div class="footer-links">
+      <a href="mailto:dprincipe.q@gmail.com">Email</a>
+      <a href="tel:+51904908206">+51 904 908 206</a>
+      <a href="https://www.linkedin.com/in/leidy-diana-principe-quispe-8ba739131/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <a href="https://github.com/DinoDiana-98" target="_blank" rel="noopener noreferrer">GitHub</a>
+      <a href="https://www.tiktok.com/@cinapri.pq" target="_blank" rel="noopener noreferrer">CINAPRI EDU</a>
+    </div>
+    <small>© <span id="year">2026</span> Leidy Diana Príncipe</small>
+  </footer>
+  <noscript><p class="noscript-note">Esta experiencia interactiva necesita JavaScript para mostrar sus fichas y conexiones.</p></noscript>
 </body>
 </html>
