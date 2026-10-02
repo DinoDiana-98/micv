@@ -9,8 +9,8 @@
   <title>Leidy Diana Príncipe — mapa profesional</title>
   <link rel="icon" href="favicon.ico" type="image/x-icon">
   <link rel="preload" as="image" href="img1.jpeg" fetchpriority="high">
-  <link rel="stylesheet" href="style.css?v=20261002-atlas-graph-contact">
-  <script src="script.js?v=20261002-atlas-graph-contact" defer></script>
+  <link rel="stylesheet" href="style.css?v=20261002-map-explorer">
+  <script src="script.js?v=20261002-map-explorer" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main" data-copy="skip">Saltar al contenido</a>
@@ -72,37 +72,27 @@
           <p class="section-kicker" data-copy="mapKicker">02 / MAPA DE EXPERIENCIA</p>
           <h2 id="map-title" data-copy="mapTitle">De lo que sé hacer a lo que construí.</h2>
         </div>
-        <p class="section-aside" data-copy="mapAside">Las áreas de la izquierda se conectan con proyectos de la derecha. Cada línea muestra dónde apliqué una habilidad.</p>
+        <p class="section-aside" data-copy="mapAside">Elige un área para ver los proyectos donde apliqué esas habilidades.</p>
       </div>
 
-      <div class="route-picker" role="group" aria-label="Elige una ruta">
-        <button class="route-card is-active" type="button" data-mode="overview" aria-pressed="true">
-          <span class="route-number">A</span><span><strong data-copy="routeQuickTitle">Tengo 30 segundos</strong><small data-copy="routeQuickText">Lo esencial y mis proyectos más representativos</small></span><span class="route-arrow" aria-hidden="true">↗</span>
-        </button>
-        <button class="route-card" type="button" data-mode="method" aria-pressed="false">
-          <span class="route-number">B</span><span><strong data-copy="routeMethodTitle">Quiero ver cómo trabajo</strong><small data-copy="routeMethodText">Decisiones, herramientas y forma de resolver</small></span><span class="route-arrow" aria-hidden="true">↗</span>
-        </button>
-        <button class="route-card" type="button" data-mode="career" aria-pressed="false">
-          <span class="route-number">C</span><span><strong data-copy="routeCareerTitle">Quiero conocer mi recorrido</strong><small data-copy="routeCareerText">Experiencia laboral contada como una secuencia</small></span><span class="route-arrow" aria-hidden="true">↗</span>
-        </button>
+      <div class="map-explorer">
+        <div class="map-explorer-intro">
+          <strong data-copy="mapFilterTitle">Explora por área</strong>
+          <p id="map-explorer-help" data-copy="mapFilterHelp">Después, selecciona un proyecto para ver qué hice.</p>
+        </div>
+        <div class="map-filter-list" id="mapFilterList" role="group" aria-label="Áreas de trabajo"></div>
       </div>
-      <p class="route-caption" id="routeCaption" aria-live="polite"></p>
-      <ol class="map-guide" id="mapGuide">
-        <li><b aria-hidden="true">01</b><span data-copy="mapGuide1">Elige una ruta</span></li>
-        <li><b aria-hidden="true">02</b><span data-copy="mapGuide2">Selecciona una tarjeta</span></li>
-        <li><b aria-hidden="true">03</b><span data-copy="mapGuide3">Descubre qué hice y cómo</span></li>
-      </ol>
 
       <div class="map-layout">
         <div class="map-stage">
           <div class="map-stage-top">
-            <span><span class="signal-dot"></span><span data-copy="mapLiveLabel">ÁREAS Y PROYECTOS</span></span>
-            <span class="map-instruction" data-copy="mapInstruction">Selecciona cualquier tarjeta</span>
+            <span><span class="signal-dot"></span><span data-copy="mapLiveLabel">PROYECTOS CONECTADOS</span></span>
+            <span class="map-instruction">03 proyectos</span>
           </div>
           <div class="graph-frame" id="graphFrame">
             <div class="graph-placeholder" id="graphPlaceholder"><span class="placeholder-code" aria-hidden="true">01<br>02<br>03</span><span data-copy="graphPlaceholder">Conectando áreas con proyectos…</span></div>
-            <div class="graph-column-headings" aria-hidden="true"><span data-copy="graphAreas">ÁREAS QUE DOMINO</span><span data-copy="graphProjects">TRABAJOS DONDE LAS APLIQUÉ</span></div>
-            <svg id="evidenceGraph" role="group" aria-describedby="mapGuide" aria-label="Mapa interactivo de proyectos y habilidades"></svg>
+            <div class="graph-column-headings" aria-hidden="true"><span data-copy="graphAreas">ÁREA SELECCIONADA</span><span data-copy="graphProjects">PROYECTOS RELACIONADOS</span></div>
+            <svg id="evidenceGraph" role="group" aria-describedby="map-explorer-help" aria-label="Mapa interactivo de proyectos y habilidades"></svg>
             <div class="graph-footnote"><span data-copy="graphField">CONEXIONES</span><span class="graph-key"><i class="key-line" aria-hidden="true"></i><span data-copy="graphConnection">cada línea relaciona trabajos y habilidades</span></span></div>
           </div>
           <div class="map-directory" id="mapDirectory" aria-label="Nodos del mapa">
@@ -126,7 +116,7 @@
           </div>
         </aside>
       </div>
-      <div class="map-legend"><span><i class="legend-mark legend-area"></i><span data-copy="legendAreas">Áreas</span></span><span><i class="legend-mark legend-work"></i><span data-copy="legendProjects">Proyectos</span></span><span><i class="legend-mark legend-role"></i><span data-copy="legendRoles">Experiencia</span></span></div>
+
     </section>
 
     <section class="work-section section-shell" id="proyectos" aria-labelledby="work-title">
