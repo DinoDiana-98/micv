@@ -9,8 +9,8 @@
   <title>Leidy Diana Príncipe — mapa profesional</title>
   <link rel="icon" href="favicon.ico" type="image/x-icon">
   <link rel="preload" as="image" href="img1.jpeg" fetchpriority="high">
-  <link rel="stylesheet" href="style.css?v=20261001-visual-refresh">
-  <script src="script.js?v=20261001-visual-refresh" defer></script>
+  <link rel="stylesheet" href="style.css?v=20261002-interactive-polish">
+  <script src="script.js?v=20261002-interactive-polish" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main" data-copy="skip">Saltar al contenido</a>
@@ -36,24 +36,25 @@
     <section class="hero section-shell" id="top" aria-labelledby="hero-title">
       <div class="hero-copy">
         <p class="overline"><span class="overline-dot"></span><span data-copy="heroOverline">DESARROLLO · AUTOMATIZACIÓN · SEGURIDAD</span><span class="overline-location">TRUJILLO, PE</span></p>
-        <h1 id="hero-title" data-copy="heroTitle">Conecto ideas, sistemas y personas para resolver problemas reales.</h1>
+        <h1 id="hero-title"><span data-copy="heroTitleLead">Conecto ideas, sistemas y personas para</span> <em class="hero-title-accent" data-copy="heroTitleAccent">resolver problemas reales.</em></h1>
         <p class="hero-intro" data-copy="heroIntro">Soy Leidy Diana Príncipe Quispe, desarrolladora full stack junior. Me interesa construir aplicaciones útiles, mejorar procesos y aplicar seguridad desde el inicio.</p>
         <div class="hero-actions">
           <a class="action action-primary" href="#mapa"><span data-copy="heroExplore">Explorar mi mapa</span><span aria-hidden="true">↘</span></a>
           <a class="action action-quiet" href="mailto:dprincipe.q@gmail.com"><span data-copy="heroContact">Hablemos</span><span aria-hidden="true">↗</span></a>
         </div>
+        <a class="hero-scroll-cue" href="#mapa">
+          <span class="scroll-cue-track" aria-hidden="true"><span></span></span>
+          <span data-copy="scrollHint">Sigue bajando para ver mi trabajo</span>
+          <span class="scroll-cue-arrow" aria-hidden="true">↓</span>
+        </a>
         <div class="hero-meta">
           <span><i class="meta-pulse" aria-hidden="true"></i><span data-copy="heroRole">Desarrolladora Full Stack Junior</span></span>
           <span class="meta-divider" aria-hidden="true"></span>
           <span data-copy="heroAvailability">Abierta a nuevos retos</span>
         </div>
-        <a class="hero-scroll-cue" href="#mapa">
-          <span class="scroll-cue-track" aria-hidden="true"><span></span></span>
-          <span data-copy="scrollHint">Desliza para explorar</span>
-          <span class="scroll-cue-arrow" aria-hidden="true">↓</span>
-        </a>
       </div>
       <div class="hero-portrait">
+        <div class="portrait-backdrop" aria-hidden="true"><span></span><span></span></div>
         <div class="portrait-coordinate" aria-hidden="true">08°06' S<br>79°02' W</div>
         <div class="portrait-orbit orbit-one" aria-hidden="true"></div>
         <div class="portrait-orbit orbit-two" aria-hidden="true"></div>
@@ -68,10 +69,10 @@
     <section class="explore-section section-shell" id="mapa" aria-labelledby="map-title">
       <div class="section-heading">
         <div>
-          <p class="section-kicker" data-copy="mapKicker">02 / MAPA DE EVIDENCIA</p>
-          <h2 id="map-title" data-copy="mapTitle">Elige qué quieres descubrir.</h2>
+          <p class="section-kicker" data-copy="mapKicker">02 / MAPA DE EXPERIENCIA</p>
+          <h2 id="map-title" data-copy="mapTitle">De lo que sé hacer a lo que construí.</h2>
         </div>
-        <p class="section-aside" data-copy="mapAside">Cada habilidad se conecta con trabajo concreto. Selecciona un nodo para ver el contexto.</p>
+        <p class="section-aside" data-copy="mapAside">Las áreas de la izquierda se conectan con proyectos de la derecha. Cada línea muestra dónde apliqué una habilidad.</p>
       </div>
 
       <div class="route-picker" role="group" aria-label="Elige una ruta">
@@ -86,17 +87,23 @@
         </button>
       </div>
       <p class="route-caption" id="routeCaption" aria-live="polite"></p>
+      <ol class="map-guide" id="mapGuide">
+        <li><b aria-hidden="true">01</b><span data-copy="mapGuide1">Elige una ruta</span></li>
+        <li><b aria-hidden="true">02</b><span data-copy="mapGuide2">Selecciona una tarjeta</span></li>
+        <li><b aria-hidden="true">03</b><span data-copy="mapGuide3">Descubre qué hice y cómo</span></li>
+      </ol>
 
       <div class="map-layout">
         <div class="map-stage">
           <div class="map-stage-top">
-            <span><span class="signal-dot"></span><span data-copy="mapLiveLabel">RED DE EXPERIENCIA</span></span>
-            <span class="map-instruction" data-copy="mapInstruction">Clic o teclado para explorar</span>
+            <span><span class="signal-dot"></span><span data-copy="mapLiveLabel">ÁREAS Y PROYECTOS</span></span>
+            <span class="map-instruction" data-copy="mapInstruction">Selecciona cualquier tarjeta</span>
           </div>
           <div class="graph-frame" id="graphFrame">
             <div class="graph-placeholder" id="graphPlaceholder"><span class="placeholder-code" aria-hidden="true">01<br>02<br>03</span><span data-copy="graphPlaceholder">Conectando áreas con proyectos…</span></div>
-            <svg id="evidenceGraph" role="group" aria-label="Mapa interactivo de proyectos y habilidades"></svg>
-            <div class="graph-footnote"><span data-copy="graphField">PROYECTOS</span><span class="graph-key"><i class="key-line" aria-hidden="true"></i><span data-copy="graphConnection">conexiones verificables</span></span></div>
+            <div class="graph-column-headings" aria-hidden="true"><span data-copy="graphAreas">ÁREAS QUE DOMINO</span><span data-copy="graphProjects">TRABAJOS DONDE LAS APLIQUÉ</span></div>
+            <svg id="evidenceGraph" role="group" aria-describedby="mapGuide" aria-label="Mapa interactivo de proyectos y habilidades"></svg>
+            <div class="graph-footnote"><span data-copy="graphField">CONEXIONES</span><span class="graph-key"><i class="key-line" aria-hidden="true"></i><span data-copy="graphConnection">cada línea relaciona trabajos y habilidades</span></span></div>
           </div>
           <div class="map-directory" id="mapDirectory" aria-label="Nodos del mapa">
             <p class="directory-heading" data-copy="directoryHeading">Explorar por área</p>
@@ -110,11 +117,11 @@
         </div>
 
         <aside class="evidence-panel" id="evidencePanel" aria-live="polite" aria-label="Detalle seleccionado">
-          <div class="panel-topline"><span data-copy="panelLabel">FICHA DE EVIDENCIA</span><span id="panelCounter">01 — 07</span></div>
+          <div class="panel-topline"><span data-copy="panelLabel">CÓMO LO APLIQUÉ</span><span id="panelCounter">Elige una tarjeta</span></div>
           <div id="panelContent">
-            <p class="panel-type" data-copy="panelDefaultType">PUNTO DE PARTIDA</p>
-            <h3 data-copy="panelDefaultTitle">Una trayectoria entre construir y cuidar.</h3>
-            <p data-copy="panelDefaultBody">Elige una de las rutas o selecciona un nodo para ver cómo se conectan mis proyectos, herramientas y experiencia.</p>
+            <p class="panel-type" data-copy="panelDefaultType">EMPIEZA AQUÍ</p>
+            <h3 data-copy="panelDefaultTitle">Selecciona una tarjeta del mapa.</h3>
+            <p data-copy="panelDefaultBody">Verás dónde lo apliqué, qué herramientas usé y qué hice en cada trabajo.</p>
             <div class="panel-hint"><span aria-hidden="true">↙</span><span data-copy="panelDefaultHint">Tu exploración empieza en el mapa</span></div>
           </div>
         </aside>
@@ -146,15 +153,30 @@
       <div class="toolkit-grid" id="toolkitGrid"></div>
     </section>
 
-    <section class="contact-section section-shell" id="contacto" aria-labelledby="contact-title">
-      <div class="contact-orbit" aria-hidden="true"><span></span><span></span><span></span></div>
-      <div class="contact-copy">
-        <p class="section-kicker" data-copy="contactKicker">06 / SIGUIENTE CONEXIÓN</p>
-        <h2 id="contact-title" data-copy="contactTitle">¿Qué podemos construir?</h2>
-        <p data-copy="contactText">Me interesa conversar sobre desarrollo web, automatización, soporte tecnológico y seguridad digital.</p>
-      </div>
-      <a class="action action-primary contact-action" href="mailto:dprincipe.q@gmail.com"><span data-copy="contactButton">Escríbeme</span><span aria-hidden="true">↗</span></a>
+    <section class="contact-end section-shell" id="contacto" aria-labelledby="contact-end-title">
+      <p class="section-kicker" data-copy="contactKicker">06 / SIGUIENTE CONEXIÓN</p>
+      <h2 id="contact-end-title" data-copy="contactEndTitle">¿Seguimos la conversación?</h2>
+      <p data-copy="contactEndText">Si mi trabajo conecta con lo que buscas, conversemos.</p>
     </section>
+    <div class="contact-widget" id="contactWidget">
+      <button class="contact-fab" id="contactFab" type="button" tabindex="-1" aria-controls="contactPanel" aria-expanded="false">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6.5h16v11H4zM4 7l8 6 8-6"/></svg>
+        <span data-copy="contactFab">Contacto</span><span aria-hidden="true">↗</span>
+      </button>
+      <section class="contact-panel" id="contactPanel" aria-labelledby="contact-title" aria-hidden="true">
+        <button class="contact-close" id="contactClose" type="button" aria-label="Cerrar contacto">×</button>
+        <div class="contact-orbit" aria-hidden="true"><span></span><span></span><span></span></div>
+        <div class="contact-copy">
+          <p class="section-kicker" data-copy="contactKicker">06 / SIGUIENTE CONEXIÓN</p>
+          <h2 id="contact-title" data-copy="contactTitle">¿Qué podemos construir?</h2>
+          <p data-copy="contactText">Me interesa conversar sobre desarrollo web, automatización, soporte tecnológico y seguridad digital.</p>
+        </div>
+        <div class="contact-panel-actions">
+          <a class="action action-primary contact-action" href="mailto:dprincipe.q@gmail.com"><span data-copy="contactButton">Escríbeme</span><span aria-hidden="true">↗</span></a>
+          <a class="contact-secondary" href="https://www.linkedin.com/in/leidy-diana-principe-quispe-8ba739131/" target="_blank" rel="noopener noreferrer">LinkedIn <span aria-hidden="true">↗</span></a>
+        </div>
+      </section>
+    </div>
   </main>
 
   <footer class="footer section-shell">
