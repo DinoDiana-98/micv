@@ -9,16 +9,19 @@ const UI = {
     heroAvailability: "Disponibilidad inmediata", scrollHint: "Sigue bajando para ver mi trabajo", portraitCaption: "Construyo, pruebo y aprendo.", portraitAlt: "Retrato de Leidy Diana Príncipe Quispe",
     graphPlaceholder: "Conectando áreas con proyectos…",
     mapKicker: "02 / MAPA DE EXPERIENCIA", mapTitle: "De lo que sé hacer a lo que construí.",
-    mapAside: "Las áreas de la izquierda se conectan con proyectos de la derecha. Cada línea muestra dónde apliqué una habilidad.",
+    mapAside: "Elige un área para ver los proyectos donde apliqué esas habilidades.",
+    mapFilterTitle: "Explora por área", mapFilterHelp: "Después, selecciona un proyecto para ver qué hice.",
+    mapFilterCareerHelp: "Selecciona una etapa del recorrido o vuelve a un área.", mapFilterAria: "Áreas de trabajo",
+    mapCountProjects: "proyectos", mapCountStages: "etapas", directoryJourney: "Etapas de mi recorrido",
     mapAsideCareer: "Sigue mis experiencias en orden y selecciona cada etapa para conocer el trabajo que hice.",
     mapGuide1: "Elige una ruta", mapGuide2: "Selecciona una tarjeta", mapGuide3: "Descubre qué hice y cómo",
-    graphAreas: "ÁREAS EN LAS QUE TRABAJO", graphProjects: "PROYECTOS DONDE LAS APLIQUÉ",
+    graphAreas: "ÁREA SELECCIONADA", graphProjects: "PROYECTOS RELACIONADOS",
     routeQuickTitle: "Tengo 30 segundos", routeQuickText: "Lo esencial y mis proyectos más representativos",
     routeMethodTitle: "Quiero ver cómo trabajo", routeMethodText: "Decisiones, herramientas y forma de resolver",
     routeCareerTitle: "Quiero conocer mi recorrido", routeCareerText: "Experiencia laboral contada como una secuencia",
-    mapLiveLabel: "ÁREAS Y PROYECTOS", mapLiveCareer: "MI RECORRIDO", mapInstruction: "Selecciona cualquier tarjeta",
+    mapLiveLabel: "PROYECTOS CONECTADOS", mapLiveCareer: "MI RECORRIDO", mapInstruction: "Selecciona un proyecto",
     graphField: "CONEXIONES", graphConnection: "cada línea relaciona trabajos y habilidades",
-    directoryHeading: "Explorar por área", areaWeb: "Aplicaciones & producto", areaQuality: "Automatización & calidad",
+    directoryHeading: "Proyectos de esta área", areaWeb: "Aplicaciones & producto", areaQuality: "Automatización & calidad",
     areaSecurity: "Seguridad & DevSecOps", areaSupport: "Soporte & sistemas", areaOpen: "Ver área",
     panelLabel: "CÓMO LO APLIQUÉ", panelDefaultType: "EMPIEZA AQUÍ",
     panelDefaultTitle: "Selecciona una tarjeta del mapa.",
@@ -74,16 +77,19 @@ const UI = {
     heroAvailability: "Available immediately", scrollHint: "Scroll to see my work", portraitCaption: "I build, test, and learn.", portraitAlt: "Portrait of Leidy Diana Príncipe Quispe",
     graphPlaceholder: "Connecting areas to projects…",
     mapKicker: "02 / EXPERIENCE MAP", mapTitle: "From what I know to what I built.",
-    mapAside: "The areas on the left connect to projects on the right. Each line shows where I applied a skill.",
+    mapAside: "Choose an area to see the projects where I applied those skills.",
+    mapFilterTitle: "Explore by area", mapFilterHelp: "Then select a project to see what I did.",
+    mapFilterCareerHelp: "Select a career stage or return to an area.", mapFilterAria: "Work areas",
+    mapCountProjects: "projects", mapCountStages: "stages", directoryJourney: "Stages of my journey",
     mapAsideCareer: "Follow my roles in order and select each stage to see the work I did.",
     mapGuide1: "Choose a route", mapGuide2: "Select a card", mapGuide3: "See what I did and how",
-    graphAreas: "AREAS I WORK IN", graphProjects: "PROJECTS WHERE I USED THEM",
+    graphAreas: "SELECTED AREA", graphProjects: "RELATED PROJECTS",
     routeQuickTitle: "I have 30 seconds", routeQuickText: "The essentials and my most representative work",
     routeMethodTitle: "Show me how you work", routeMethodText: "Decisions, tools, and problem-solving",
     routeCareerTitle: "Show me your journey", routeCareerText: "Work experience as a connected timeline",
-    mapLiveLabel: "AREAS AND PROJECTS", mapLiveCareer: "MY JOURNEY", mapInstruction: "Select any card",
+    mapLiveLabel: "CONNECTED PROJECTS", mapLiveCareer: "MY JOURNEY", mapInstruction: "Select a project",
     graphField: "CONNECTIONS", graphConnection: "each line links work and skills",
-    directoryHeading: "Explore by area", areaWeb: "Applications & product", areaQuality: "Automation & quality",
+    directoryHeading: "Projects in this area", areaWeb: "Applications & product", areaQuality: "Automation & quality",
     areaSecurity: "Security & DevSecOps", areaSupport: "Support & systems", areaOpen: "Open area",
     panelLabel: "HOW I APPLIED IT", panelDefaultType: "START HERE",
     panelDefaultTitle: "Select a card on the map.",
@@ -399,7 +405,8 @@ const graphSvg = document.getElementById("evidenceGraph");
 const directory = document.getElementById("mapDirectory");
 const panel = document.getElementById("panelContent");
 const panelCounter = document.getElementById("panelCounter");
-const routeCaption = document.getElementById("routeCaption");
+const mapFilterList = document.getElementById("mapFilterList");
+const mapExplorerHelp = document.getElementById("map-explorer-help");
 const projectShelf = document.getElementById("projectShelf");
 const journeyRail = document.getElementById("journeyRail");
 const toolkitGrid = document.getElementById("toolkitGrid");
@@ -418,7 +425,8 @@ function readPreference(key, fallback) {
 let locale = readPreference("cv-locale", "es");
 let theme = readPreference("cv-theme", window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark");
 let mode = "overview";
-let selectedId = null;
+let selectedAreaId = "web";
+let selectedId = "web";
 let graphLoaded = false;
 let resizeTimer = 0;
 
@@ -445,10 +453,10 @@ function applyCopy() {
   document.querySelector(".portrait-frame img").alt = tr("portraitAlt");
   contactClose.setAttribute("aria-label", tr("contactClose"));
   document.querySelector(".route-picker").setAttribute("aria-label", tr("ariaRoute"));
-  directory.setAttribute("aria-label", locale === "es" ? "Índice de nodos del mapa" : "Map node directory");
+  directory.setAttribute("aria-label", tr(mode === "career" ? "directoryJourney" : "directoryHeading"));
   graphSvg.setAttribute("aria-label", tr("ariaMap"));
   updateThemeButton();
-  updateRouteText();
+  renderMapFilters();
   renderDirectory();
   renderPanel();
   renderShelf();
@@ -486,45 +494,61 @@ function getProject(id) { return projects.find((item) => item.id === id); }
 function getExperience(id) { return experience.find((item) => item.id === id); }
 function getNode(id) { return getArea(id) || getProject(id) || getExperience(id); }
 
-function routeInfo(which) {
-  if (which === "method") return { key: "modeMethod", selected: "quality" };
-  if (which === "career") return { key: "modeCareer", selected: "soltec" };
-  return { key: "modeOverview", selected: "web" };
-}
-function updateRouteText() {
-  routeCaption.textContent = tr(routeInfo(mode).key);
+function renderMapFilters() {
+  mapFilterList.setAttribute("aria-label", tr("mapFilterAria"));
+  mapFilterList.innerHTML = areas.map((area, index) =>
+    '<button class="map-filter-button' + (mode !== "career" && selectedAreaId === area.id ? ' is-active' : '') + '" type="button" data-area-id="' + safe(area.id) + '" aria-pressed="' + String(mode !== "career" && selectedAreaId === area.id) + '"><span class="map-filter-number" aria-hidden="true">' + String(index + 1).padStart(2, "0") + '</span><span>' + safe(localized(area.title)) + '</span><span class="map-filter-arrow" aria-hidden="true">↗</span></button>'
+  ).join("");
+  mapExplorerHelp.textContent = tr(mode === "career" ? "mapFilterCareerHelp" : "mapFilterHelp");
   graphFrame.closest(".map-stage").dataset.mode = mode;
-  document.querySelector(".map-stage-top [data-copy=\"mapLiveLabel\"]").textContent = tr(mode === "career" ? "mapLiveCareer" : "mapLiveLabel");
+  document.querySelector(".map-stage-top [data-copy=mapLiveLabel]").textContent = tr(mode === "career" ? "mapLiveCareer" : "mapLiveLabel");
+  const count = mode === "career" ? experience.length : getArea(selectedAreaId).projects.length;
+  document.querySelector(".map-instruction").textContent = String(count).padStart(2, "0") + " " + tr(mode === "career" ? "mapCountStages" : "mapCountProjects");
   document.querySelector("#mapa .section-aside").textContent = tr(mode === "career" ? "mapAsideCareer" : "mapAside");
-  document.querySelectorAll(".route-card").forEach((button) => {
-    const active = button.dataset.mode === mode;
-    button.classList.toggle("is-active", active);
-    button.setAttribute("aria-pressed", String(active));
-  });
 }
-function setMode(nextMode) {
-  mode = nextMode;
-  selectedId = routeInfo(mode).selected;
-  updateRouteText();
+function chooseArea(id) {
+  if (!getArea(id)) return;
+  mode = "overview";
+  selectedAreaId = id;
+  selectedId = id;
+  renderMapFilters();
   renderDirectory();
   renderPanel();
   renderShelf();
   if (graphLoaded) drawGraph();
 }
 function modeProjects() {
-  if (mode === "method") return projects.filter((item) => ["service", "cinapri", "automation", "devsecops", "owasp"].includes(item.id));
   return projects;
 }
-function modeAreas() {
-  if (mode === "method") return areas.filter((item) => ["web", "quality", "security"].includes(item.id));
-  return areas;
-}
 function selectNode(id) {
-  if (!getNode(id)) return;
+  const node = getNode(id);
+  if (!node) return;
+  if (node.kind === "area") {
+    chooseArea(id);
+    return;
+  }
+  let redraw = false;
+  if (node.kind === "role" && mode !== "career") {
+    mode = "career";
+    redraw = true;
+  }
+  if (node.kind === "project") {
+    const area = getArea(selectedAreaId);
+    if (mode === "career" || !area.projects.includes(id)) {
+      mode = "overview";
+      selectedAreaId = node.area;
+      redraw = true;
+    }
+  }
   selectedId = id;
+  if (redraw) renderMapFilters();
+  renderDirectory();
   renderPanel();
   renderShelf();
-  if (graphLoaded) updateGraphEmphasis();
+  if (graphLoaded) {
+    if (redraw) drawGraph();
+    else updateGraphEmphasis();
+  }
 }
 
 function typeLabel(node) {
@@ -579,15 +603,15 @@ function renderPanel() {
 }
 
 function renderDirectory() {
-  const groups = mode === "career"
-    ? experience.map((item) => '<div class="directory-group"><span><small>' + safe(item.dates) + '</small>' + safe(localized(item.title)) + '</span><button type="button" data-node-id="' + safe(item.id) + '">' + safe(tr("areaOpen")) + '</button></div>').join("")
-    : modeAreas().map((area) => {
-        const related = area.projects.map(getProject).filter((item) => item && (mode !== "method" || modeProjects().some((entry) => entry.id === item.id)));
-        return '<div class="directory-area"><div class="directory-group"><span>' + safe(localized(area.title)) + '</span><button type="button" data-node-id="' + safe(area.id) + '">' + safe(tr("areaOpen")) + '</button></div>' +
-          '<div class="directory-children">' + related.map((item) => '<button type="button" data-node-id="' + safe(item.id) + '">' + safe(localized(item.title)) + '<span aria-hidden="true">↗</span></button>').join("") + '</div></div>';
-      }).join("");
-  directory.innerHTML = '<p class="directory-heading">' + safe(tr("directoryHeading")) + '</p><div class="directory-groups">' + groups + '</div>';
+  directory.setAttribute("aria-label", tr(mode === "career" ? "directoryJourney" : "directoryHeading"));
+  const items = mode === "career" ? experience : getArea(selectedAreaId).projects.map(getProject).filter(Boolean);
+  const options = items.map((item, index) => {
+    const detail = item.kind === "role" ? item.dates : (item.tools || []).slice(0, 2).join(" · ");
+    return '<button class="map-project-option' + (selectedId === item.id ? ' is-active' : '') + '" type="button" data-node-id="' + safe(item.id) + '" aria-pressed="' + String(selectedId === item.id) + '"><span class="map-project-number" aria-hidden="true">' + String(index + 1).padStart(2, "0") + '</span><span class="map-project-copy"><strong>' + safe(localized(item.title)) + '</strong><small>' + safe(detail) + '</small></span><span class="map-project-arrow" aria-hidden="true">↗</span></button>';
+  }).join("");
+  directory.innerHTML = '<p class="directory-heading">' + safe(tr(mode === "career" ? "directoryJourney" : "directoryHeading")) + '</p><div class="map-project-options">' + options + '</div>';
 }
+
 function renderShelf() {
   projectShelf.innerHTML = modeProjects().map((item, index) => {
     const status = item.status === "progress" ? tr("currentlyBuilding") : tr("statusPublished");
@@ -642,7 +666,9 @@ function renderToolkit() {
   });
 }
 function graphNodes() {
-  return mode === "career" ? experience.slice() : modeProjects().concat(modeAreas());
+  if (mode === "career") return experience.slice();
+  const area = getArea(selectedAreaId);
+  return [area].concat(area.projects.map(getProject).filter(Boolean));
 }
 function graphLinks(nodes) {
   if (mode === "career") return experience.slice(0, -1).map((item, index) => ({ source: item.id, target: experience[index + 1].id }));
@@ -674,11 +700,11 @@ function drawGraph() {
   const categories = rawNodes.filter((node) => node.kind === "area");
   const work = rawNodes.filter((node) => node.kind === "project");
   const top = 86;
-  const step = 102;
+  const step = 112;
   const stackedRoles = roles && width < 690;
   const height = roles
     ? stackedRoles ? 90 + Math.max(0, rawNodes.length - 1) * 105 + 85 : 390
-    : Math.max(530, top + Math.max(0, work.length - 1) * step + 84);
+    : Math.max(425, top + Math.max(0, work.length - 1) * step + 80);
   const roleWidth = stackedRoles
     ? Math.min(245, width - 48)
     : Math.min(158, (width - 40) / Math.max(rawNodes.length, 1) - 10);
@@ -694,7 +720,7 @@ function drawGraph() {
     const index = column.findIndex((item) => item.id === node.id);
     const x = node.kind === "area" ? width * .21 : width * .78;
     const y = node.kind === "area"
-      ? top + index * Math.max(0, work.length - 1) * step / Math.max(categories.length - 1, 1)
+      ? top + Math.max(0, work.length - 1) * step / 2
       : top + index * step;
     return Object.assign({}, node, { x: x, y: y });
   });
@@ -796,8 +822,6 @@ function handleNodeActivation(event) {
   if (!nodeElement) return;
   const id = nodeElement.dataset.nodeId;
   const node = getNode(id);
-  if (node && node.kind === "role" && mode !== "career") setMode("career");
-  if (node && node.kind === "project" && mode === "career") setMode("overview");
   selectNode(id);
   if (event.currentTarget === projectShelf || event.currentTarget === journeyRail) {
     document.getElementById("mapa").scrollIntoView({ behavior: reduceMotion.matches ? "auto" : "smooth" });
@@ -944,7 +968,10 @@ function initContactWidget() {
 function initEvents() {
   languageToggle.addEventListener("click", toggleLanguage);
   themeToggle.addEventListener("click", toggleTheme);
-  document.querySelectorAll(".route-card").forEach((button) => button.addEventListener("click", () => setMode(button.dataset.mode)));
+  mapFilterList.addEventListener("click", (event) => {
+    const button = event.target.closest("[data-area-id]");
+    if (button) chooseArea(button.dataset.areaId);
+  });
   graphSvg.addEventListener("click", handleNodeActivation);
   graphSvg.addEventListener("keydown", (event) => {
     if ((event.key === "Enter" || event.key === " ") && event.target.matches(".graph-node")) {
