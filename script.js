@@ -5,7 +5,7 @@ const UI = {
     heroTitle: "Conecto ideas, sistemas y personas para resolver problemas reales.",
     heroIntro: "Soy Leidy Diana Príncipe Quispe, desarrolladora full stack junior. Me interesa construir aplicaciones útiles, mejorar procesos y aplicar seguridad desde el inicio.",
     heroExplore: "Explorar mi mapa", heroContact: "Hablemos", heroRole: "Desarrolladora Full Stack Junior",
-    heroAvailability: "Disponibilidad inmediata", portraitCaption: "Construyo, pruebo y aprendo.", portraitAlt: "Retrato de Leidy Diana Príncipe Quispe",
+    heroAvailability: "Disponibilidad inmediata", scrollHint: "Desliza para explorar", portraitCaption: "Construyo, pruebo y aprendo.", portraitAlt: "Retrato de Leidy Diana Príncipe Quispe",
     graphPlaceholder: "Conectando áreas con proyectos…",
     mapKicker: "02 / MAPA DE EVIDENCIA", mapTitle: "Elige qué quieres descubrir.",
     mapAside: "Cada habilidad se conecta con trabajo concreto. Selecciona un nodo para ver el contexto.",
@@ -58,7 +58,7 @@ const UI = {
     heroTitle: "I connect ideas, systems, and people to solve real problems.",
     heroIntro: "I’m Leidy Diana Príncipe Quispe, a junior full stack developer. I’m interested in building useful applications, improving processes, and applying security from the start.",
     heroExplore: "Explore my map", heroContact: "Let’s talk", heroRole: "Junior Full Stack Developer",
-    heroAvailability: "Available immediately", portraitCaption: "I build, test, and learn.", portraitAlt: "Portrait of Leidy Diana Príncipe Quispe",
+    heroAvailability: "Available immediately", scrollHint: "Scroll to explore", portraitCaption: "I build, test, and learn.", portraitAlt: "Portrait of Leidy Diana Príncipe Quispe",
     graphPlaceholder: "Connecting areas to projects…",
     mapKicker: "02 / EVIDENCE MAP", mapTitle: "Choose what you want to discover.",
     mapAside: "Each skill connects to real work. Select a node to see the context.",
@@ -323,14 +323,40 @@ const experience = [
 ];
 
 const toolkit = [
-  { key: "skillsFrontend", tools: "HTML · CSS · JavaScript · Angular · Tailwind CSS" },
-  { key: "skillsBackend", tools: "PHP · Laravel 13 · Livewire · Filament" },
-  { key: "skillsData", tools: "SQL Server · MariaDB · SQL" },
-  { key: "skillsAutomation", tools: "Python · Playwright · Excel" },
-  { key: "skillsSecurity", tools: "Wireshark · Nmap · Burp Suite · OWASP ZAP · Kali Linux · Metasploit" },
-  { key: "skillsEngineering", tools: "Docker · WSL2 · Composer · npm · Git · GitHub" },
-  { key: "skillsDesktop", tools: "C# WinForms · .NET 8 · WebView2" },
-  { key: "skillsDesign", tools: "Figma · Android Studio" }
+  { key: "skillsFrontend", tech: [
+    { name: "HTML5", slug: "html5", color: "E34F26" }, { name: "CSS3", mark: "CSS", color: "663399" },
+    { name: "JavaScript", slug: "javascript", color: "F7DF1E" }, { name: "Angular", slug: "angular", color: "DD0031" },
+    { name: "Tailwind CSS", slug: "tailwindcss", color: "06B6D4" }
+  ] },
+  { key: "skillsBackend", tech: [
+    { name: "PHP", slug: "php", color: "777BB4" }, { name: "Laravel 13", slug: "laravel", color: "FF2D20" },
+    { name: "Livewire", slug: "livewire", color: "FB70A9" }, { name: "Filament", slug: "filament", color: "F5A623" }
+  ] },
+  { key: "skillsData", tech: [
+    { name: "SQL Server", mark: "SQL", color: "CC2927" }, { name: "MariaDB", slug: "mariadb", color: "003545" },
+    { name: "SQL", mark: "DB", color: "52796F" }
+  ] },
+  { key: "skillsAutomation", tech: [
+    { name: "Python", slug: "python", color: "3776AB" }, { name: "Playwright", mark: "PW", color: "2EAD33" },
+    { name: "Excel", mark: "XL", color: "217346" }
+  ] },
+  { key: "skillsSecurity", tech: [
+    { name: "Wireshark", slug: "wireshark", color: "1679A7" }, { name: "Nmap", mark: "N", color: "4F7A66" },
+    { name: "Burp Suite", slug: "burpsuite", color: "FF6633" }, { name: "OWASP ZAP", slug: "owasp", color: "7E57C2" },
+    { name: "Kali Linux", slug: "kalilinux", color: "557C94" }, { name: "Metasploit", slug: "metasploit", color: "2596CD" }
+  ] },
+  { key: "skillsEngineering", tech: [
+    { name: "Docker", slug: "docker", color: "2496ED" }, { name: "WSL2", slug: "linux", color: "4D4D4D" },
+    { name: "Composer", slug: "composer", color: "885630" }, { name: "npm", slug: "npm", color: "CB3837" },
+    { name: "Git", slug: "git", color: "F05032" }, { name: "GitHub", slug: "github", color: "181717" }
+  ] },
+  { key: "skillsDesktop", tech: [
+    { name: "C# WinForms", mark: "C#", color: "512BD4" }, { name: ".NET 8", slug: "dotnet", color: "512BD4" },
+    { name: "WebView2", mark: "WV", color: "0078D4" }
+  ] },
+  { key: "skillsDesign", tech: [
+    { name: "Figma", slug: "figma", color: "F24E1E" }, { name: "Android Studio", slug: "androidstudio", color: "3DDC84" }
+  ] }
 ];
 
 const graphEdges = [
@@ -552,9 +578,25 @@ function renderJourney() {
   ).join("");
 }
 function renderToolkit() {
-  toolkitGrid.innerHTML = toolkit.map((item) =>
-    '<article class="tool-card"><h3>' + safe(tr(item.key)) + '</h3><p>' + safe(item.tools) + '</p></article>'
-  ).join("");
+  toolkitGrid.innerHTML = toolkit.map((item) => {
+    const chips = item.tech.map((tech) => {
+      const mark = safe(tech.mark || tech.name.replace(/[^A-Za-z0-9]/g, "").slice(0, 2).toUpperCase());
+      const image = tech.slug
+        ? '<img src="https://cdn.simpleicons.org/' + safe(tech.slug) + '/' + safe(tech.color) + '" alt="" loading="lazy" decoding="async" width="22" height="22">'
+        : "";
+      return '<span class="tech-chip"><span class="tech-icon' + (tech.slug ? "" : " is-fallback") + '" style="--brand-color:#' + safe(tech.color) + '" aria-hidden="true">' + image + '<b>' + mark + '</b></span><span class="tech-name">' + safe(tech.name) + '</span></span>';
+    }).join("");
+    return '<article class="tool-card"><h3>' + safe(tr(item.key)) + '</h3><div class="tech-list">' + chips + '</div></article>';
+  }).join("");
+  toolkitGrid.querySelectorAll(".tech-icon img").forEach((image) => {
+    image.addEventListener("error", () => {
+      const icon = image.closest(".tech-icon");
+      if (icon) {
+        icon.classList.add("is-fallback");
+        image.remove();
+      }
+    }, { once: true });
+  });
 }
 
 function graphNodes() {
