@@ -419,7 +419,6 @@ let locale = readPreference("cv-locale", "es");
 let theme = readPreference("cv-theme", window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark");
 let mode = "overview";
 let selectedId = null;
-let d3Library = null;
 let graphLoaded = false;
 let resizeTimer = 0;
 
@@ -651,7 +650,7 @@ function graphLinks(nodes) {
   return graphEdges.filter((edge) => ids.has(edge[0]) && ids.has(edge[1])).map((edge) => ({ source: edge[0], target: edge[1] }));
 }
 function nodeSubtitle(node) {
-  if (node.kind === "area") return locale === "es" ? "ÁREA DE EXPERIENCIA" : "EXPERIENCE AREA";
+  if (node.kind === "area") return "";
   if (node.kind === "role") return node.dates;
   return (node.tools || []).slice(0, 2).join(" · ");
 }
@@ -665,7 +664,7 @@ function makeSvg(tag, attrs) {
   return element;
 }
 function drawGraph() {
-  if (!d3Library || window.innerWidth <= 720 || !graphFrame.clientWidth) return;
+  if (window.innerWidth <= 720 || !graphFrame.clientWidth) return;
   graphSvg.removeAttribute("hidden");
   const mapStage = graphFrame.closest(".map-stage");
   mapStage.classList.remove("is-fallback");
@@ -674,30 +673,35 @@ function drawGraph() {
   const roles = mode === "career";
   const categories = rawNodes.filter((node) => node.kind === "area");
   const work = rawNodes.filter((node) => node.kind === "project");
-  const height = roles ? 390 : Math.max(520, work.length * 76 + 76);
+  const top = 86;
+  const step = 102;
+  const stackedRoles = roles && width < 690;
+  const height = roles
+    ? stackedRoles ? 90 + Math.max(0, rawNodes.length - 1) * 105 + 85 : 390
+    : Math.max(530, top + Math.max(0, work.length - 1) * step + 84);
+  const roleWidth = stackedRoles
+    ? Math.min(245, width - 48)
+    : Math.min(158, (width - 40) / Math.max(rawNodes.length, 1) - 10);
   graphFrame.style.setProperty("--graph-height", height + "px");
   const simNodes = rawNodes.map((node) => {
     if (roles) {
       const index = experience.findIndex((item) => item.id === node.id);
-      const x = width * (.16 + index * .225);
-      return Object.assign({}, node, { x: x, y: height * .47, targetX: x, targetY: height * .47 });
+      const x = stackedRoles ? width / 2 : 20 + roleWidth / 2 + index * (width - 40 - roleWidth) / Math.max(experience.length - 1, 1);
+      const y = stackedRoles ? 90 + index * 105 : height / 2;
+      return Object.assign({}, node, { x: x, y: y });
     }
     const column = node.kind === "area" ? categories : work;
     const index = column.findIndex((item) => item.id === node.id);
-    const x = node.kind === "area" ? width * .21 : width * .77;
-    const y = (index + 1) * height / (column.length + 1);
-    return Object.assign({}, node, { x: x, y: y, targetX: x, targetY: y });
+    const x = node.kind === "area" ? width * .21 : width * .78;
+    const y = node.kind === "area"
+      ? top + index * Math.max(0, work.length - 1) * step / Math.max(categories.length - 1, 1)
+      : top + index * step;
+    return Object.assign({}, node, { x: x, y: y });
   });
-  const simLinks = graphLinks(simNodes);
-  const simulation = d3Library.forceSimulation(simNodes)
-    .force("link", d3Library.forceLink(simLinks).id((node) => node.id).distance(width * (mode === "career" ? .225 : .43)).strength(.24))
-    .force("charge", d3Library.forceManyBody().strength(-28))
-    .force("x", d3Library.forceX((node) => node.targetX).strength(.62))
-    .force("y", d3Library.forceY((node) => node.targetY).strength(.5))
-    .force("collide", d3Library.forceCollide((node) => node.kind === "role" ? 79 : node.kind === "area" ? 29 : 27))
-    .stop();
-  simulation.tick(125);
-  simulation.stop();
+  const byId = new Map(simNodes.map((node) => [node.id, node]));
+  const simLinks = graphLinks(simNodes)
+    .map((edge) => ({ source: byId.get(edge.source), target: byId.get(edge.target) }))
+    .filter((edge) => edge.source && edge.target);
 
   graphSvg.setAttribute("viewBox", "0 0 " + width + " " + height);
   graphSvg.setAttribute("aria-label", tr("ariaMap"));
@@ -732,23 +736,30 @@ function drawGraph() {
       "aria-pressed": String(selected),
       "aria-label": localized(node.title || node.company) + ". " + typeLabel(node)
     });
-    const widthNode = node.kind === "role" ? 158 : node.kind === "area" ? 158 : 180;
-    const heightNode = node.kind === "role" ? 68 : 62;
+    const widthNode = node.kind === "role" ? roleWidth : node.kind === "area" ? Math.min(178, width * .32) : Math.min(210, width * .38);
+    const heightNode = node.kind === "role" ? 78 : node.kind === "area" ? 72 : 84;
     const rect = makeSvg("rect", { x: node.x - widthNode / 2, y: node.y - heightNode / 2, width: widthNode, height: heightNode, rx: 11 });
     group.appendChild(rect);
     const labelLines = nodeLines(node);
+    const subtitleText = nodeSubtitle(node);
+    const hasSecondLine = Boolean(labelLines[1]);
+    const firstBaseline = subtitleText
+      ? node.y - (hasSecondLine ? 12 : 4)
+      : node.y + (hasSecondLine ? -5 : 5);
     const text = makeSvg("text", { "text-anchor": "middle" });
-    const firstLine = makeSvg("tspan", { x: node.x, y: node.y - (labelLines.length > 1 ? 3 : -2), class: "node-label" });
+    const firstLine = makeSvg("tspan", { x: node.x, y: firstBaseline, class: "node-label" });
     firstLine.textContent = labelLines[0];
     text.appendChild(firstLine);
-    if (labelLines[1]) {
-      const secondLine = makeSvg("tspan", { x: node.x, dy: 12, class: "node-label" });
+    if (hasSecondLine) {
+      const secondLine = makeSvg("tspan", { x: node.x, dy: 17, class: "node-label" });
       secondLine.textContent = labelLines[1];
       text.appendChild(secondLine);
     }
-    const subtitle = makeSvg("tspan", { x: node.x, dy: labelLines[1] ? 12 : 13, class: "node-sub" });
-    subtitle.textContent = nodeSubtitle(node);
-    text.appendChild(subtitle);
+    if (subtitleText) {
+      const subtitle = makeSvg("tspan", { x: node.x, dy: hasSecondLine ? 20 : 24, class: "node-sub" });
+      subtitle.textContent = subtitleText;
+      text.appendChild(subtitle);
+    }
     group.appendChild(text);
     nodeGroup.appendChild(group);
   });
@@ -777,19 +788,7 @@ function updateGraphEmphasis() {
 function loadGraph() {
   if (graphLoaded || window.innerWidth <= 720) return;
   graphLoaded = true;
-  import("https://cdn.jsdelivr.net/npm/d3-force@3.0.0/+esm")
-    .then((module) => {
-      d3Library = module;
-      drawGraph();
-    })
-    .catch(() => {
-      graphLoaded = false;
-      const mapStage = graphFrame.closest(".map-stage");
-      mapStage.classList.remove("is-ready");
-      mapStage.classList.add("is-fallback");
-      graphSvg.setAttribute("hidden", "hidden");
-      renderDirectory();
-    });
+  drawGraph();
 }
 
 function handleNodeActivation(event) {
