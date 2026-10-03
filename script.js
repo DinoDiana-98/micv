@@ -9,16 +9,19 @@ const UI = {
     heroAvailability: "Disponibilidad inmediata", scrollHint: "Sigue bajando para ver mi trabajo", portraitCaption: "Construyo, pruebo y aprendo.", portraitAlt: "Retrato de Leidy Diana Príncipe Quispe",
     graphPlaceholder: "Conectando áreas con proyectos…",
     mapKicker: "02 / MAPA DE EXPERIENCIA", mapTitle: "De lo que sé hacer a lo que construí.",
-    mapAside: "Las áreas de la izquierda se conectan con proyectos de la derecha. Cada línea muestra dónde apliqué una habilidad.",
+    mapAside: "Elige un área para ver los proyectos donde apliqué esas habilidades.",
+    mapFilterTitle: "Explora por área", mapFilterHelp: "Después, selecciona un proyecto para ver qué hice.",
+    mapFilterCareerHelp: "Selecciona una etapa del recorrido o vuelve a un área.", mapFilterAria: "Áreas de trabajo",
+    mapCountProjects: "proyectos", mapCountStages: "etapas", directoryJourney: "Etapas de mi recorrido",
     mapAsideCareer: "Sigue mis experiencias en orden y selecciona cada etapa para conocer el trabajo que hice.",
     mapGuide1: "Elige una ruta", mapGuide2: "Selecciona una tarjeta", mapGuide3: "Descubre qué hice y cómo",
-    graphAreas: "ÁREAS EN LAS QUE TRABAJO", graphProjects: "PROYECTOS DONDE LAS APLIQUÉ",
+    graphAreas: "ÁREA SELECCIONADA", graphProjects: "PROYECTOS RELACIONADOS",
     routeQuickTitle: "Tengo 30 segundos", routeQuickText: "Lo esencial y mis proyectos más representativos",
     routeMethodTitle: "Quiero ver cómo trabajo", routeMethodText: "Decisiones, herramientas y forma de resolver",
     routeCareerTitle: "Quiero conocer mi recorrido", routeCareerText: "Experiencia laboral contada como una secuencia",
-    mapLiveLabel: "ÁREAS Y PROYECTOS", mapLiveCareer: "MI RECORRIDO", mapInstruction: "Selecciona cualquier tarjeta",
+    mapLiveLabel: "PROYECTOS CONECTADOS", mapLiveCareer: "MI RECORRIDO", mapInstruction: "Selecciona un proyecto",
     graphField: "CONEXIONES", graphConnection: "cada línea relaciona trabajos y habilidades",
-    directoryHeading: "Explorar por área", areaWeb: "Aplicaciones & producto", areaQuality: "Automatización & calidad",
+    directoryHeading: "Proyectos de esta área", areaWeb: "Aplicaciones & producto", areaQuality: "Automatización & calidad",
     areaSecurity: "Seguridad & DevSecOps", areaSupport: "Soporte & sistemas", areaOpen: "Ver área",
     panelLabel: "CÓMO LO APLIQUÉ", panelDefaultType: "EMPIEZA AQUÍ",
     panelDefaultTitle: "Selecciona una tarjeta del mapa.",
@@ -30,12 +33,17 @@ const UI = {
     workAside: "Proyectos y colaboraciones organizados por el problema que abordan.",
     journeyKicker: "04 / TRAYECTORIA", journeyTitle: "De la operación al producto.",
     journeyAside: "Experiencia en desarrollo, soporte, infraestructura y diseño técnico.",
-    toolkitKicker: "05 / HERRAMIENTAS", toolkitTitle: "Lo que llevo al trabajo.",
-    toolkitAside: "Tecnologías agrupadas por la tarea que me ayudan a resolver.",
+    toolkitKicker: "05 / HERRAMIENTAS", toolkitTitle: "Tecnologías que pongo en práctica.",
+    toolkitAside: "De interfaces a automatización y seguridad: mis herramientas de un vistazo.",
+    skillsFrontendDesc: "Interfaces y experiencias web", skillsBackendDesc: "Lógica, paneles y servicios",
+    skillsDataDesc: "Consultas y persistencia", skillsAutomationDesc: "Pruebas y tareas repetibles",
+    skillsSecurityDesc: "Análisis y evaluación", skillsEngineeringDesc: "Construcción y colaboración",
+    skillsDesktopDesc: "Soluciones para escritorio", skillsDesignDesc: "Prototipos y aplicaciones",
     contactKicker: "06 / SIGUIENTE CONEXIÓN", contactTitle: "¿Qué podemos construir?",
-    contactText: "Me interesa conversar sobre desarrollo web, automatización, soporte tecnológico y seguridad digital.",
+    contactText: "Puedo ayudarte a construir una aplicación, automatizar un proceso o revisar cómo protegerlo. Cuéntame tu idea.",
     contactButton: "Escríbeme", contactFab: "Contacto", contactClose: "Cerrar contacto",
-    contactEndTitle: "¿Seguimos la conversación?", contactEndText: "Si mi trabajo conecta con lo que buscas, conversemos.",
+    contactLocation: "Trujillo, Perú · abierta a proyectos", contactDirect: "CORREO DIRECTO",
+    contactEndTitle: "¿Tienes un reto en mente?", contactEndText: "Cuéntame qué necesitas; me gusta convertir problemas concretos en soluciones útiles.",
     footerText: "Desarrolladora Full Stack Junior · Trujillo, Perú",
     modeOverview: "Vista rápida: una selección de proyectos y las áreas que los conectan.",
     modeMethod: "Cómo trabajo: escucho la necesidad, diseño una solución, la construyo y compruebo que funcione.",
@@ -69,16 +77,19 @@ const UI = {
     heroAvailability: "Available immediately", scrollHint: "Scroll to see my work", portraitCaption: "I build, test, and learn.", portraitAlt: "Portrait of Leidy Diana Príncipe Quispe",
     graphPlaceholder: "Connecting areas to projects…",
     mapKicker: "02 / EXPERIENCE MAP", mapTitle: "From what I know to what I built.",
-    mapAside: "The areas on the left connect to projects on the right. Each line shows where I applied a skill.",
+    mapAside: "Choose an area to see the projects where I applied those skills.",
+    mapFilterTitle: "Explore by area", mapFilterHelp: "Then select a project to see what I did.",
+    mapFilterCareerHelp: "Select a career stage or return to an area.", mapFilterAria: "Work areas",
+    mapCountProjects: "projects", mapCountStages: "stages", directoryJourney: "Stages of my journey",
     mapAsideCareer: "Follow my roles in order and select each stage to see the work I did.",
     mapGuide1: "Choose a route", mapGuide2: "Select a card", mapGuide3: "See what I did and how",
-    graphAreas: "AREAS I WORK IN", graphProjects: "PROJECTS WHERE I USED THEM",
+    graphAreas: "SELECTED AREA", graphProjects: "RELATED PROJECTS",
     routeQuickTitle: "I have 30 seconds", routeQuickText: "The essentials and my most representative work",
     routeMethodTitle: "Show me how you work", routeMethodText: "Decisions, tools, and problem-solving",
     routeCareerTitle: "Show me your journey", routeCareerText: "Work experience as a connected timeline",
-    mapLiveLabel: "AREAS AND PROJECTS", mapLiveCareer: "MY JOURNEY", mapInstruction: "Select any card",
+    mapLiveLabel: "CONNECTED PROJECTS", mapLiveCareer: "MY JOURNEY", mapInstruction: "Select a project",
     graphField: "CONNECTIONS", graphConnection: "each line links work and skills",
-    directoryHeading: "Explore by area", areaWeb: "Applications & product", areaQuality: "Automation & quality",
+    directoryHeading: "Projects in this area", areaWeb: "Applications & product", areaQuality: "Automation & quality",
     areaSecurity: "Security & DevSecOps", areaSupport: "Support & systems", areaOpen: "Open area",
     panelLabel: "HOW I APPLIED IT", panelDefaultType: "START HERE",
     panelDefaultTitle: "Select a card on the map.",
@@ -90,12 +101,17 @@ const UI = {
     workAside: "Projects and collaborations grouped by the problems they address.",
     journeyKicker: "04 / EXPERIENCE", journeyTitle: "From operations to product.",
     journeyAside: "Experience across development, support, infrastructure, and technical design.",
-    toolkitKicker: "05 / TOOLKIT", toolkitTitle: "What I bring to the work.",
-    toolkitAside: "Tools grouped by the tasks they help me solve.",
+    toolkitKicker: "05 / TOOLKIT", toolkitTitle: "Technologies I put to work.",
+    toolkitAside: "From interfaces to automation and security: my tools at a glance.",
+    skillsFrontendDesc: "Interfaces and web experiences", skillsBackendDesc: "Logic, dashboards and services",
+    skillsDataDesc: "Queries and persistence", skillsAutomationDesc: "Tests and repeatable tasks",
+    skillsSecurityDesc: "Analysis and assessment", skillsEngineeringDesc: "Building and collaborating",
+    skillsDesktopDesc: "Desktop solutions", skillsDesignDesc: "Prototypes and applications",
     contactKicker: "06 / NEXT CONNECTION", contactTitle: "What could we build?",
-    contactText: "I’m interested in conversations about web development, automation, technology support, and digital security.",
-    contactButton: "Send me a message", contactFab: "Contact", contactClose: "Close contact panel",
-    contactEndTitle: "Shall we keep talking?", contactEndText: "If my work matches what you need, let’s talk.",
+    contactText: "I can help build an app, automate a process, or review how to protect it. Tell me about your idea.",
+    contactButton: "Email me", contactFab: "Contact", contactClose: "Close contact panel",
+    contactLocation: "Trujillo, Peru · open to projects", contactDirect: "DIRECT EMAIL",
+    contactEndTitle: "Have a challenge in mind?", contactEndText: "Tell me what you need; I enjoy turning real problems into useful solutions.",
     footerText: "Junior Full Stack Developer · Trujillo, Peru",
     modeOverview: "A quick view: selected projects and the areas that connect them.",
     modeMethod: "How I work: understand the need, shape a solution, build it, and check that it works.",
@@ -389,7 +405,8 @@ const graphSvg = document.getElementById("evidenceGraph");
 const directory = document.getElementById("mapDirectory");
 const panel = document.getElementById("panelContent");
 const panelCounter = document.getElementById("panelCounter");
-const routeCaption = document.getElementById("routeCaption");
+const mapFilterList = document.getElementById("mapFilterList");
+const mapExplorerHelp = document.getElementById("map-explorer-help");
 const projectShelf = document.getElementById("projectShelf");
 const journeyRail = document.getElementById("journeyRail");
 const toolkitGrid = document.getElementById("toolkitGrid");
@@ -408,8 +425,8 @@ function readPreference(key, fallback) {
 let locale = readPreference("cv-locale", "es");
 let theme = readPreference("cv-theme", window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark");
 let mode = "overview";
-let selectedId = null;
-let d3Library = null;
+let selectedAreaId = "web";
+let selectedId = "web";
 let graphLoaded = false;
 let resizeTimer = 0;
 
@@ -436,10 +453,10 @@ function applyCopy() {
   document.querySelector(".portrait-frame img").alt = tr("portraitAlt");
   contactClose.setAttribute("aria-label", tr("contactClose"));
   document.querySelector(".route-picker").setAttribute("aria-label", tr("ariaRoute"));
-  directory.setAttribute("aria-label", locale === "es" ? "Índice de nodos del mapa" : "Map node directory");
+  directory.setAttribute("aria-label", tr(mode === "career" ? "directoryJourney" : "directoryHeading"));
   graphSvg.setAttribute("aria-label", tr("ariaMap"));
   updateThemeButton();
-  updateRouteText();
+  renderMapFilters();
   renderDirectory();
   renderPanel();
   renderShelf();
@@ -477,45 +494,70 @@ function getProject(id) { return projects.find((item) => item.id === id); }
 function getExperience(id) { return experience.find((item) => item.id === id); }
 function getNode(id) { return getArea(id) || getProject(id) || getExperience(id); }
 
-function routeInfo(which) {
-  if (which === "method") return { key: "modeMethod", selected: "quality" };
-  if (which === "career") return { key: "modeCareer", selected: "soltec" };
-  return { key: "modeOverview", selected: "web" };
-}
-function updateRouteText() {
-  routeCaption.textContent = tr(routeInfo(mode).key);
+function renderMapFilters() {
+  const focusedAreaId = mapFilterList.contains(document.activeElement) ? document.activeElement.dataset.areaId : null;
+  mapFilterList.setAttribute("aria-label", tr("mapFilterAria"));
+  mapFilterList.innerHTML = areas.map((area, index) =>
+    '<button class="map-filter-button' + (mode !== "career" && selectedAreaId === area.id ? ' is-active' : '') + '" type="button" data-area-id="' + safe(area.id) + '" aria-pressed="' + String(mode !== "career" && selectedAreaId === area.id) + '"><span class="map-filter-number" aria-hidden="true">' + String(index + 1).padStart(2, "0") + '</span><span>' + safe(localized(area.title)) + '</span><span class="map-filter-arrow" aria-hidden="true">↗</span></button>'
+  ).join("");
+  if (focusedAreaId) {
+    [...mapFilterList.querySelectorAll("[data-area-id]")].find((button) => button.dataset.areaId === focusedAreaId)?.focus({ preventScroll: true });
+  }
+  mapExplorerHelp.textContent = tr(mode === "career" ? "mapFilterCareerHelp" : "mapFilterHelp");
   graphFrame.closest(".map-stage").dataset.mode = mode;
-  document.querySelector(".map-stage-top [data-copy=\"mapLiveLabel\"]").textContent = tr(mode === "career" ? "mapLiveCareer" : "mapLiveLabel");
+  document.querySelector(".map-stage-top [data-copy=mapLiveLabel]").textContent = tr(mode === "career" ? "mapLiveCareer" : "mapLiveLabel");
+  const count = mode === "career" ? experience.length : getArea(selectedAreaId).projects.length;
+  document.querySelector(".map-instruction").textContent = String(count).padStart(2, "0") + " " + tr(mode === "career" ? "mapCountStages" : "mapCountProjects");
   document.querySelector("#mapa .section-aside").textContent = tr(mode === "career" ? "mapAsideCareer" : "mapAside");
-  document.querySelectorAll(".route-card").forEach((button) => {
-    const active = button.dataset.mode === mode;
-    button.classList.toggle("is-active", active);
-    button.setAttribute("aria-pressed", String(active));
-  });
 }
-function setMode(nextMode) {
-  mode = nextMode;
-  selectedId = routeInfo(mode).selected;
-  updateRouteText();
+function chooseArea(id) {
+  if (!getArea(id)) return;
+  mode = "overview";
+  selectedAreaId = id;
+  selectedId = id;
+  renderMapFilters();
   renderDirectory();
   renderPanel();
   renderShelf();
   if (graphLoaded) drawGraph();
 }
 function modeProjects() {
-  if (mode === "method") return projects.filter((item) => ["service", "cinapri", "automation", "devsecops", "owasp"].includes(item.id));
   return projects;
 }
-function modeAreas() {
-  if (mode === "method") return areas.filter((item) => ["web", "quality", "security"].includes(item.id));
-  return areas;
-}
 function selectNode(id) {
-  if (!getNode(id)) return;
+  const node = getNode(id);
+  if (!node) return;
+  if (node.kind === "area") {
+    chooseArea(id);
+    return;
+  }
+  let redraw = false;
+  if (node.kind === "role" && mode !== "career") {
+    mode = "career";
+    redraw = true;
+  }
+  if (node.kind === "project") {
+    const area = getArea(selectedAreaId);
+    if (mode === "career" || !area.projects.includes(id)) {
+      mode = "overview";
+      selectedAreaId = node.area;
+      redraw = true;
+    }
+  }
+  const focusInPanel = panel.contains(document.activeElement);
   selectedId = id;
+  if (redraw) renderMapFilters();
+  renderDirectory();
   renderPanel();
+  if (focusInPanel) {
+    const heading = panel.querySelector("h3");
+    if (heading) { heading.tabIndex = -1; heading.focus({ preventScroll: true }); }
+  }
   renderShelf();
-  if (graphLoaded) updateGraphEmphasis();
+  if (graphLoaded) {
+    if (redraw) drawGraph();
+    else updateGraphEmphasis();
+  }
 }
 
 function typeLabel(node) {
@@ -570,15 +612,19 @@ function renderPanel() {
 }
 
 function renderDirectory() {
-  const groups = mode === "career"
-    ? experience.map((item) => '<div class="directory-group"><span><small>' + safe(item.dates) + '</small>' + safe(localized(item.title)) + '</span><button type="button" data-node-id="' + safe(item.id) + '">' + safe(tr("areaOpen")) + '</button></div>').join("")
-    : modeAreas().map((area) => {
-        const related = area.projects.map(getProject).filter((item) => item && (mode !== "method" || modeProjects().some((entry) => entry.id === item.id)));
-        return '<div class="directory-area"><div class="directory-group"><span>' + safe(localized(area.title)) + '</span><button type="button" data-node-id="' + safe(area.id) + '">' + safe(tr("areaOpen")) + '</button></div>' +
-          '<div class="directory-children">' + related.map((item) => '<button type="button" data-node-id="' + safe(item.id) + '">' + safe(localized(item.title)) + '<span aria-hidden="true">↗</span></button>').join("") + '</div></div>';
-      }).join("");
-  directory.innerHTML = '<p class="directory-heading">' + safe(tr("directoryHeading")) + '</p><div class="directory-groups">' + groups + '</div>';
+  const focusedNodeId = directory.contains(document.activeElement) ? document.activeElement.dataset.nodeId : null;
+  directory.setAttribute("aria-label", tr(mode === "career" ? "directoryJourney" : "directoryHeading"));
+  const items = mode === "career" ? experience : getArea(selectedAreaId).projects.map(getProject).filter(Boolean);
+  const options = items.map((item, index) => {
+    const detail = item.kind === "role" ? item.dates : (item.tools || []).slice(0, 2).join(" · ");
+    return '<button class="map-project-option' + (selectedId === item.id ? ' is-active' : '') + '" type="button" data-node-id="' + safe(item.id) + '" aria-pressed="' + String(selectedId === item.id) + '"><span class="map-project-number" aria-hidden="true">' + String(index + 1).padStart(2, "0") + '</span><span class="map-project-copy"><strong>' + safe(localized(item.title)) + '</strong><small>' + safe(detail) + '</small></span><span class="map-project-arrow" aria-hidden="true">↗</span></button>';
+  }).join("");
+  directory.innerHTML = '<p class="directory-heading">' + safe(tr(mode === "career" ? "directoryJourney" : "directoryHeading")) + '</p><div class="map-project-options">' + options + '</div>';
+  if (focusedNodeId) {
+    [...directory.querySelectorAll("[data-node-id]")].find((button) => button.dataset.nodeId === focusedNodeId)?.focus({ preventScroll: true });
+  }
 }
+
 function renderShelf() {
   projectShelf.innerHTML = modeProjects().map((item, index) => {
     const status = item.status === "progress" ? tr("currentlyBuilding") : tr("statusPublished");
@@ -612,14 +658,15 @@ const techGlyphs = {
   browser: '<svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="18" rx="3"/><path d="M2 8h20M7 5.5h.01M10 5.5h.01m2 6 3 2.5-3 2.5"/></svg>'
 };
 function renderToolkit() {
-  toolkitGrid.innerHTML = toolkit.map((item) => {
-    const chips = item.tech.map((tech, index) => {
+  toolkitGrid.innerHTML = toolkit.map((item, rowIndex) => {
+    const technologies = item.tech.map((tech, index) => {
       const source = tech.icon || (tech.slug ? "https://cdn.simpleicons.org/" + tech.slug + "/" + tech.color : "");
-      const image = source ? '<img src="' + safe(source) + '" alt="" loading="lazy" decoding="async" width="22" height="22">' : "";
+      const image = source ? '<img src="' + safe(source) + '" alt="" loading="lazy" decoding="async" width="28" height="28">' : "";
       const fallback = '<span class="tech-fallback">' + (techGlyphs[tech.glyph] || techGlyphs.code) + '</span>';
-      return '<span class="tech-chip" style="--tech-index:' + index + '"><span class="tech-icon' + (source ? "" : " is-fallback") + '" style="--brand-color:#' + safe(tech.color) + '" aria-hidden="true">' + image + fallback + '</span><span class="tech-name">' + safe(tech.name) + '</span></span>';
+      return '<li class="tech-item" style="--tech-index:' + index + '"><span class="tech-icon' + (source ? "" : " is-fallback") + '" style="--brand-color:#' + safe(tech.color) + '" aria-hidden="true">' + image + fallback + '</span><span class="tech-name">' + safe(tech.name) + '</span></li>';
     }).join("");
-    return '<article class="tool-card"><h3>' + safe(tr(item.key)) + '</h3><div class="tech-list">' + chips + '</div></article>';
+    const rowId = "tool-row-" + rowIndex;
+    return '<section class="tool-row" style="--row-index:' + rowIndex + '" aria-labelledby="' + rowId + '"><div class="tool-row-heading"><span class="tool-row-index" aria-hidden="true">' + String(rowIndex + 1).padStart(2, "0") + '</span><div><h3 id="' + rowId + '">' + safe(tr(item.key)) + '</h3><p>' + safe(tr(item.key + "Desc")) + '</p></div></div><ul class="tech-list">' + technologies + '</ul></section>';
   }).join("");
   toolkitGrid.querySelectorAll(".tech-icon img").forEach((image) => {
     image.addEventListener("error", () => {
@@ -631,9 +678,10 @@ function renderToolkit() {
     }, { once: true });
   });
 }
-
 function graphNodes() {
-  return mode === "career" ? experience.slice() : modeProjects().concat(modeAreas());
+  if (mode === "career") return experience.slice();
+  const area = getArea(selectedAreaId);
+  return [area].concat(area.projects.map(getProject).filter(Boolean));
 }
 function graphLinks(nodes) {
   if (mode === "career") return experience.slice(0, -1).map((item, index) => ({ source: item.id, target: experience[index + 1].id }));
@@ -641,7 +689,7 @@ function graphLinks(nodes) {
   return graphEdges.filter((edge) => ids.has(edge[0]) && ids.has(edge[1])).map((edge) => ({ source: edge[0], target: edge[1] }));
 }
 function nodeSubtitle(node) {
-  if (node.kind === "area") return locale === "es" ? "ÁREA DE EXPERIENCIA" : "EXPERIENCE AREA";
+  if (node.kind === "area") return "";
   if (node.kind === "role") return node.dates;
   return (node.tools || []).slice(0, 2).join(" · ");
 }
@@ -655,7 +703,7 @@ function makeSvg(tag, attrs) {
   return element;
 }
 function drawGraph() {
-  if (!d3Library || window.innerWidth <= 720 || !graphFrame.clientWidth) return;
+  if (window.innerWidth <= 720 || !graphFrame.clientWidth) return;
   graphSvg.removeAttribute("hidden");
   const mapStage = graphFrame.closest(".map-stage");
   mapStage.classList.remove("is-fallback");
@@ -664,33 +712,39 @@ function drawGraph() {
   const roles = mode === "career";
   const categories = rawNodes.filter((node) => node.kind === "area");
   const work = rawNodes.filter((node) => node.kind === "project");
-  const height = roles ? 390 : Math.max(520, work.length * 76 + 76);
+  const top = 86;
+  const step = 112;
+  const stackedRoles = roles && width < 690;
+  const height = roles
+    ? stackedRoles ? 90 + Math.max(0, rawNodes.length - 1) * 105 + 85 : 390
+    : Math.max(425, top + Math.max(0, work.length - 1) * step + 80);
+  const roleWidth = stackedRoles
+    ? Math.min(245, width - 48)
+    : Math.min(158, (width - 40) / Math.max(rawNodes.length, 1) - 10);
   graphFrame.style.setProperty("--graph-height", height + "px");
   const simNodes = rawNodes.map((node) => {
     if (roles) {
       const index = experience.findIndex((item) => item.id === node.id);
-      const x = width * (.16 + index * .225);
-      return Object.assign({}, node, { x: x, y: height * .47, targetX: x, targetY: height * .47 });
+      const x = stackedRoles ? width / 2 : 20 + roleWidth / 2 + index * (width - 40 - roleWidth) / Math.max(experience.length - 1, 1);
+      const y = stackedRoles ? 90 + index * 105 : height / 2;
+      return Object.assign({}, node, { x: x, y: y });
     }
     const column = node.kind === "area" ? categories : work;
     const index = column.findIndex((item) => item.id === node.id);
-    const x = node.kind === "area" ? width * .21 : width * .77;
-    const y = (index + 1) * height / (column.length + 1);
-    return Object.assign({}, node, { x: x, y: y, targetX: x, targetY: y });
+    const x = node.kind === "area" ? width * .21 : width * .78;
+    const y = node.kind === "area"
+      ? top + Math.max(0, work.length - 1) * step / 2
+      : top + index * step;
+    return Object.assign({}, node, { x: x, y: y });
   });
-  const simLinks = graphLinks(simNodes);
-  const simulation = d3Library.forceSimulation(simNodes)
-    .force("link", d3Library.forceLink(simLinks).id((node) => node.id).distance(width * (mode === "career" ? .225 : .43)).strength(.24))
-    .force("charge", d3Library.forceManyBody().strength(-28))
-    .force("x", d3Library.forceX((node) => node.targetX).strength(.62))
-    .force("y", d3Library.forceY((node) => node.targetY).strength(.5))
-    .force("collide", d3Library.forceCollide((node) => node.kind === "role" ? 79 : node.kind === "area" ? 29 : 27))
-    .stop();
-  simulation.tick(125);
-  simulation.stop();
+  const byId = new Map(simNodes.map((node) => [node.id, node]));
+  const simLinks = graphLinks(simNodes)
+    .map((edge) => ({ source: byId.get(edge.source), target: byId.get(edge.target) }))
+    .filter((edge) => edge.source && edge.target);
 
   graphSvg.setAttribute("viewBox", "0 0 " + width + " " + height);
   graphSvg.setAttribute("aria-label", tr("ariaMap"));
+  const focusedNodeId = graphSvg.contains(document.activeElement) ? document.activeElement.dataset.nodeId : null;
   graphSvg.replaceChildren();
   const title = makeSvg("title");
   title.textContent = tr("ariaMap");
@@ -722,27 +776,38 @@ function drawGraph() {
       "aria-pressed": String(selected),
       "aria-label": localized(node.title || node.company) + ". " + typeLabel(node)
     });
-    const widthNode = node.kind === "role" ? 158 : node.kind === "area" ? 158 : 180;
-    const heightNode = node.kind === "role" ? 68 : 62;
+    const widthNode = node.kind === "role" ? roleWidth : node.kind === "area" ? Math.min(178, width * .32) : Math.min(210, width * .38);
+    const heightNode = node.kind === "role" ? 78 : node.kind === "area" ? 72 : 84;
     const rect = makeSvg("rect", { x: node.x - widthNode / 2, y: node.y - heightNode / 2, width: widthNode, height: heightNode, rx: 11 });
     group.appendChild(rect);
     const labelLines = nodeLines(node);
+    const subtitleText = nodeSubtitle(node);
+    const hasSecondLine = Boolean(labelLines[1]);
+    const firstBaseline = subtitleText
+      ? node.y - (hasSecondLine ? 12 : 4)
+      : node.y + (hasSecondLine ? -5 : 5);
     const text = makeSvg("text", { "text-anchor": "middle" });
-    const firstLine = makeSvg("tspan", { x: node.x, y: node.y - (labelLines.length > 1 ? 3 : -2), class: "node-label" });
+    const firstLine = makeSvg("tspan", { x: node.x, y: firstBaseline, class: "node-label" });
     firstLine.textContent = labelLines[0];
     text.appendChild(firstLine);
-    if (labelLines[1]) {
-      const secondLine = makeSvg("tspan", { x: node.x, dy: 12, class: "node-label" });
+    if (hasSecondLine) {
+      const secondLine = makeSvg("tspan", { x: node.x, dy: 17, class: "node-label" });
       secondLine.textContent = labelLines[1];
       text.appendChild(secondLine);
     }
-    const subtitle = makeSvg("tspan", { x: node.x, dy: labelLines[1] ? 12 : 13, class: "node-sub" });
-    subtitle.textContent = nodeSubtitle(node);
-    text.appendChild(subtitle);
+    if (subtitleText) {
+      const subtitle = makeSvg("tspan", { x: node.x, dy: hasSecondLine ? 20 : 24, class: "node-sub" });
+      subtitle.textContent = subtitleText;
+      text.appendChild(subtitle);
+    }
     group.appendChild(text);
     nodeGroup.appendChild(group);
   });
   graphSvg.appendChild(nodeGroup);
+  if (focusedNodeId) {
+    const nodes = [...nodeGroup.querySelectorAll(".graph-node")];
+    (nodes.find((item) => item.dataset.nodeId === focusedNodeId) || nodes.find((item) => item.dataset.nodeId === selectedId))?.focus({ preventScroll: true });
+  }
   graphFrame.closest(".map-stage").classList.add("is-ready");
   updateGraphEmphasis();
 }
@@ -767,33 +832,24 @@ function updateGraphEmphasis() {
 function loadGraph() {
   if (graphLoaded || window.innerWidth <= 720) return;
   graphLoaded = true;
-  import("https://cdn.jsdelivr.net/npm/d3-force@3.0.0/+esm")
-    .then((module) => {
-      d3Library = module;
-      drawGraph();
-    })
-    .catch(() => {
-      graphLoaded = false;
-      const mapStage = graphFrame.closest(".map-stage");
-      mapStage.classList.remove("is-ready");
-      mapStage.classList.add("is-fallback");
-      graphSvg.setAttribute("hidden", "hidden");
-      renderDirectory();
-    });
+  drawGraph();
 }
 
 function handleNodeActivation(event) {
   const nodeElement = event.target.closest("[data-node-id]");
   if (!nodeElement) return;
   const id = nodeElement.dataset.nodeId;
-  const node = getNode(id);
-  if (node && node.kind === "role" && mode !== "career") setMode("career");
-  if (node && node.kind === "project" && mode === "career") setMode("overview");
   selectNode(id);
-  if (event.currentTarget === projectShelf || event.currentTarget === journeyRail) {
+  const fromShelf = event.currentTarget === projectShelf || event.currentTarget === journeyRail;
+  const fromMobileDirectory = event.currentTarget === directory && window.innerWidth <= 720;
+  if (fromShelf) {
     document.getElementById("mapa").scrollIntoView({ behavior: reduceMotion.matches ? "auto" : "smooth" });
-  } else if (event.currentTarget === directory && window.innerWidth <= 720) {
+  } else if (fromMobileDirectory) {
     document.getElementById("evidencePanel").scrollIntoView({ behavior: reduceMotion.matches ? "auto" : "smooth", block: "nearest" });
+  }
+  if (fromShelf || fromMobileDirectory) {
+    const heading = panel.querySelector("h3");
+    if (heading) { heading.tabIndex = -1; heading.focus({ preventScroll: true }); }
   }
 }
 function initToolkitReveal() {
@@ -866,7 +922,7 @@ function initContactWidget() {
     contactPanel.setAttribute("aria-hidden", "true");
   };
   contactFab.addEventListener("click", () => {
-    if (reason === "manual") close(true);
+    if (contactWidget.classList.contains("is-open")) close(true);
     else open("manual");
   });
   contactClose.addEventListener("click", () => {
@@ -910,8 +966,11 @@ function initContactWidget() {
   }
   const heroObserver = new IntersectionObserver((entries) => {
     const visible = !entries[0].isIntersecting || atEnd;
-    setVisible(visible);
+    if (!visible && contactWidget.contains(document.activeElement)) {
+      document.querySelector(".hero-actions a")?.focus({ preventScroll: true });
+    }
     if (!visible && reason) close(false);
+    setVisible(visible);
   }, { threshold: .1 });
   heroObserver.observe(document.querySelector(".hero"));
   const endObserver = new IntersectionObserver((entries) => {
@@ -932,7 +991,10 @@ function initContactWidget() {
 function initEvents() {
   languageToggle.addEventListener("click", toggleLanguage);
   themeToggle.addEventListener("click", toggleTheme);
-  document.querySelectorAll(".route-card").forEach((button) => button.addEventListener("click", () => setMode(button.dataset.mode)));
+  mapFilterList.addEventListener("click", (event) => {
+    const button = event.target.closest("[data-area-id]");
+    if (button) chooseArea(button.dataset.areaId);
+  });
   graphSvg.addEventListener("click", handleNodeActivation);
   graphSvg.addEventListener("keydown", (event) => {
     if ((event.key === "Enter" || event.key === " ") && event.target.matches(".graph-node")) {
