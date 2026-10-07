@@ -1,190 +1,176 @@
 <!doctype html>
-<html lang="es" data-theme="dark">
+<html lang="es">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="color-scheme" content="dark light">
-  <meta name="theme-color" content="#10141d">
-  <meta name="description" content="Leidy Diana Príncipe Quispe: desarrollo web, automatización, soporte tecnológico y ciberseguridad.">
-  <title>Leidy Diana Príncipe — mapa profesional</title>
+  <meta name="color-scheme" content="light">
+  <meta name="theme-color" content="#f7f6f2">
+  <meta name="description" content="Leidy Diana Principe Quispe · Cinapri. Experiencia en televentas, atención, prevención de fraude, QA y desarrollo de software.">
+  <title>Leidy Diana Principe Quispe · Cinapri</title>
   <link rel="icon" href="favicon.ico" type="image/x-icon">
   <link rel="preload" as="image" href="img1.jpeg" fetchpriority="high">
-  <link rel="stylesheet" href="style.css?v=20261002-map-explorer">
-  <script src="script.js?v=20261002-map-explorer" defer></script>
+  <link rel="stylesheet" href="style.css?v=20261007-waves-console">
+  <script src="script.js?v=20261007-waves-console" defer></script>
 </head>
 <body>
-  <a class="skip-link" href="#main" data-copy="skip">Saltar al contenido</a>
-  <header class="topbar">
-    <a class="brand" href="#top" aria-label="Leidy Diana Príncipe, inicio">
-      <span class="brand-mark" aria-hidden="true">LD</span>
-      <span class="brand-name">Leidy Diana<small>MAPA PROFESIONAL</small></span>
-    </a>
-    <nav class="main-nav" aria-label="Navegación principal">
-      <a href="#mapa" data-copy="navMap">Mapa</a>
-      <a href="#trayectoria" data-copy="navJourney">Trayectoria</a>
-      <a href="#contacto" data-copy="navContact">Contacto</a>
-    </nav>
-    <div class="utilities">
-      <button class="utility-button language-button" id="languageToggle" type="button" aria-label="Switch to English">EN</button>
-      <button class="utility-button theme-button" id="themeToggle" type="button" aria-label="Cambiar a modo claro" title="Cambiar tema">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v2m0 14v2M3 12h2m14 0h2M5.64 5.64l1.42 1.42m9.88 9.88 1.42 1.42m0-12.72-1.42 1.42m-9.88 9.88-1.42 1.42M16.5 12a4.5 4.5 0 1 1-9 0 4.5 4.5 0 0 1 9 0Z"/></svg>
-      </button>
+  <a class="skip-link" href="#main" data-i18n="skip">Saltar al contenido</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#top" aria-label="Leidy Diana Principe Quispe, inicio">
+        <span class="brand-mark" aria-hidden="true">C</span>
+        <span class="brand-copy"><strong>Leidy Diana</strong><small>CINAPRI</small></span>
+      </a>
+      <nav class="site-nav" aria-label="Navegación principal">
+        <a href="#perfil" data-i18n="navProfile">Perfil</a>
+        <a href="#experiencia" data-i18n="navExperience">Experiencia</a>
+        <a href="#proyectos" data-i18n="navProjects">Proyectos</a>
+        <a href="#contacto" data-i18n="navContact">Contacto</a>
+      </nav>
+      <button class="language-toggle" id="languageToggle" type="button" aria-label="Switch to English" hidden>EN <span aria-hidden="true">↗</span></button>
     </div>
   </header>
 
   <main id="main">
-    <section class="hero section-shell" id="top" aria-labelledby="hero-title">
+    <section class="hero container" id="top" aria-labelledby="hero-title">
       <div class="hero-copy">
-        <p class="overline"><span class="overline-dot"></span><span data-copy="heroOverline">DESARROLLO · AUTOMATIZACIÓN · SEGURIDAD</span><span class="overline-location">TRUJILLO, PE</span></p>
-        <h1 id="hero-title"><span data-copy="heroTitleLead">Conecto ideas, sistemas y personas para</span> <em class="hero-title-accent" data-copy="heroTitleAccent">resolver problemas reales.</em></h1>
-        <p class="hero-intro" data-copy="heroIntro">Soy Leidy Diana Príncipe Quispe, desarrolladora full stack junior. Me interesa construir aplicaciones útiles, mejorar procesos y aplicar seguridad desde el inicio.</p>
+        <p class="eyebrow"><span class="eyebrow-line" aria-hidden="true"></span><span data-i18n="heroEyebrow">PERSONAS · PROCESOS · TECNOLOGÍA</span></p>
+        <h1 id="hero-title"><span data-i18n="heroLine1">Escucho para entender.</span><em data-i18n="heroLine2">Construyo para resolver.</em></h1>
+        <p class="hero-intro" data-i18n="heroIntro">Soy Leidy Diana Principe Quispe, también Cinapri. Mi experiencia reúne televentas, atención, prevención de fraude, QA y desarrollo de software.</p>
+        <p class="hero-focus" data-i18n="heroFocus">Me interesa aportar en prospección y seguimiento de servicios tecnológicos, combinando escucha, orden y criterio técnico.</p>
         <div class="hero-actions">
-          <a class="action action-primary" href="#mapa"><span data-copy="heroExplore">Explorar mi mapa</span><span aria-hidden="true">↘</span></a>
-          <a class="action action-quiet" href="mailto:dprincipe.q@gmail.com"><span data-copy="heroContact">Hablemos</span><span aria-hidden="true">↗</span></a>
+          <a class="button button-primary" href="#experiencia"><span data-i18n="heroCta1">Conoce mi experiencia</span><span aria-hidden="true">↘</span></a>
+          <a class="button button-text" href="https://wa.me/51904908206" target="_blank" rel="noopener noreferrer"><span data-i18n="heroCta2">Hablemos</span><span aria-hidden="true">↗</span></a>
         </div>
-        <a class="hero-scroll-cue" href="#mapa">
-          <span class="scroll-cue-track" aria-hidden="true"><span></span></span>
-          <span data-copy="scrollHint">Sigue bajando para ver mi trabajo</span>
-          <span class="scroll-cue-arrow" aria-hidden="true">↓</span>
-        </a>
-        <div class="hero-meta">
-          <span><i class="meta-pulse" aria-hidden="true"></i><span data-copy="heroRole">Desarrolladora Full Stack Junior</span></span>
-          <span class="meta-divider" aria-hidden="true"></span>
-          <span data-copy="heroAvailability">Abierta a nuevos retos</span>
-        </div>
+        <div class="hero-bottom"><span>TRUJILLO, PERÚ</span><span class="hero-bottom-rule" aria-hidden="true"></span><span data-i18n="heroAvailable">ABIERTA A OPORTUNIDADES</span></div>
       </div>
-      <div class="hero-portrait">
-        <div class="portrait-backdrop" aria-hidden="true"><span></span><span></span></div>
-        <div class="portrait-coordinate" aria-hidden="true">08°06' S<br>79°02' W</div>
-        <div class="portrait-orbit orbit-one" aria-hidden="true"></div>
-        <div class="portrait-orbit orbit-two" aria-hidden="true"></div>
-        <figure class="portrait-frame">
-          <img src="img1.jpeg" width="420" height="420" fetchpriority="high" alt="Retrato de Leidy Diana Príncipe Quispe">
-          <figcaption><span class="portrait-status"></span><span data-copy="portraitCaption">Construyo, pruebo y aprendo.</span></figcaption>
-        </figure>
-        <span class="portrait-index" aria-hidden="true">01 / 04</span>
+      <figure class="portrait">
+        <div class="portrait-image"><img src="img1.jpeg" width="420" height="420" fetchpriority="high" alt="Retrato de Leidy Diana Principe Quispe"></div>
+        <figcaption><span class="portrait-caption-mark" aria-hidden="true">01 /</span><span data-i18n="heroCaption">Conecto personas y tecnología para resolver.</span></figcaption>
+      </figure>
+    </section>
+
+    <section class="profile-section section-space" id="perfil" aria-labelledby="profile-title">
+      <div class="container">
+        <div class="section-heading">
+          <p class="section-number" data-i18n="profileIndex">01 / PERFIL</p>
+          <div><h2 id="profile-title" data-i18n="profileTitle">Mi recorrido tiene un hilo claro: resolver.</h2><p class="section-lead" data-i18n="profileIntro">Empecé en televentas y atención. Después trabajé en operaciones, monitoreo de fraude y soporte, y llevé esa mirada al desarrollo y la calidad de software.</p></div>
+        </div>
+        <div class="strength-grid">
+          <article class="strength"><span class="strength-number">01</span><h3 data-i18n="strength1Title">Escucha y comunicación</h3><p data-i18n="strength1Text">Atendí consultas y promoví planes móviles por teléfono, explicando opciones y respondiendo dudas de clientes.</p></article>
+          <article class="strength"><span class="strength-number">02</span><h3 data-i18n="strength2Title">Seguimiento con criterio</h3><p data-i18n="strength2Text">Verifiqué ventas y solicitudes, reporté indicios de fraude y escalé incidencias para proteger la experiencia del cliente.</p></article>
+          <article class="strength"><span class="strength-number">03</span><h3 data-i18n="strength3Title">Comprensión técnica</h3><p data-i18n="strength3Text">Hoy combino soporte, desarrollo y QA para entender tanto a las personas como a los sistemas que utilizan.</p></article>
+        </div>
       </div>
     </section>
 
-    <section class="explore-section section-shell" id="mapa" aria-labelledby="map-title">
-      <div class="section-heading">
-        <div>
-          <p class="section-kicker" data-copy="mapKicker">02 / MAPA DE EXPERIENCIA</p>
-          <h2 id="map-title" data-copy="mapTitle">De lo que sé hacer a lo que construí.</h2>
+    <section class="experience-section section-space" id="experiencia" aria-labelledby="experience-title">
+      <div class="container">
+        <div class="section-heading">
+          <p class="section-number" data-i18n="experienceIndex">02 / EXPERIENCIA</p>
+          <div><h2 id="experience-title" data-i18n="experienceTitle">De la conversación al producto.</h2><p class="section-lead" data-i18n="experienceIntro">He trabajado con clientes, operaciones y equipos técnicos. Cada etapa amplió mi forma de escuchar, hacer seguimiento y resolver.</p></div>
         </div>
-        <p class="section-aside" data-copy="mapAside">Elige un área para ver los proyectos donde apliqué esas habilidades.</p>
-      </div>
+        <div class="experience-grid">
+          <section class="experience-lane" aria-labelledby="people-title">
+            <div class="lane-heading"><span class="lane-icon" aria-hidden="true">↗</span><div><h3 id="people-title" data-i18n="peopleTitle">Clientes y operación</h3><p data-i18n="peopleIntro">Ventas, atención, verificación y prevención.</p></div></div>
+            <article class="experience-item">
+              <p class="experience-date" data-i18n="tisDate">FEB 2020 — FEB 2021</p>
+              <h4 data-i18n="tisRole">Técnico en monitoreo de fraude</h4>
+              <p class="experience-company">Telefónica Ingeniería de Seguridad · TIS</p>
+              <p data-i18n="tisText">En la Jefatura de Prevención verifiqué solicitudes y ventas, detecté errores e indicios de fraude y reporté hallazgos para proteger a clientes y empresa.</p>
+            </article>
+            <article class="experience-item">
+              <p class="experience-date" data-i18n="tgestionaDate">SEP 2019 — FEB 2020</p>
+              <h4 data-i18n="tgestionaRole">Digitadora</h4>
+              <p class="experience-company">Tgestiona · Movistar Te Ayuda</p>
+              <p data-i18n="tgestionaText">Operé aplicaciones de servicios móviles y fijos, como Atis, CMS y Gestel, y escalé incidencias masivas.</p>
+            </article>
+            <article class="experience-item">
+              <p class="experience-date" data-i18n="teleatentoDate">DIC 2016 — SEP 2017</p>
+              <h4 data-i18n="teleatentoRole">Asesora de ventas y back office</h4>
+              <p class="experience-company">Teleatento · Movistar</p>
+              <p data-i18n="teleatentoText">En Televentas Argentina promoví planes móviles por teléfono y resolví consultas con apoyo de +Simple, Remedy y Equifax. Después apoyé la operación de Movistar fija en back office.</p>
+            </article>
+          </section>
 
-      <div class="map-explorer">
-        <div class="map-explorer-intro">
-          <strong data-copy="mapFilterTitle">Explora por área</strong>
-          <p id="map-explorer-help" data-copy="mapFilterHelp">Después, selecciona un proyecto para ver qué hice.</p>
+          <section class="experience-lane" aria-labelledby="tech-title">
+            <div class="lane-heading"><span class="lane-icon" aria-hidden="true">⌘</span><div><h3 id="tech-title" data-i18n="techTitle">Tecnología y calidad</h3><p data-i18n="techIntro">Desarrollo, soporte, QA y diseño técnico.</p></div></div>
+            <article class="experience-item">
+              <p class="experience-date" data-i18n="soltecDate">MAR — SEP 2026</p>
+              <h4 data-i18n="soltecRole">Programadora y analista de soporte</h4>
+              <p class="experience-company">SOLTECJS</p>
+              <p data-i18n="soltecText">Desarrollo web con PHP y Laravel, soporte a usuarios y trabajo con bases de datos. Apliqué Python y Playwright en automatización y apoyé en las pruebas de facturación electrónica.</p>
+            </article>
+            <article class="experience-item">
+              <p class="experience-date" data-i18n="rolexDate">NOV 2023 — ENE 2025</p>
+              <h4 data-i18n="rolexRole">Desarrolladora de software y soporte tecnológico</h4>
+              <p class="experience-company">Rolex Constructores SAC</p>
+              <p data-i18n="rolexText">Implementé soluciones y brindé soporte tecnológico; desarrollé una aplicación móvil con geolocalización para el control de asistencia.</p>
+            </article>
+            <article class="experience-item">
+              <p class="experience-date" data-i18n="arqkonDate">JUL — OCT 2023</p>
+              <h4 data-i18n="arqkonRole">Diseñadora BIM</h4>
+              <p class="experience-company">Arqkon</p>
+              <p data-i18n="arqkonText">Diseñé planos para colegios del Bicentenario siguiendo estándares BIM internacionales.</p>
+            </article>
+            <article class="experience-item">
+              <p class="experience-date" data-i18n="untDate">JUN 2022 — FEB 2023</p>
+              <h4 data-i18n="untRole">Prácticas preprofesionales de desarrollo web</h4>
+              <p class="experience-company">Universidad Nacional de Trujillo · Facultad de Enfermería</p>
+              <p data-i18n="untText">Desarrollé el sitio web institucional, señalado como una contribución para la acreditación SINEACE.</p>
+            </article>
+          </section>
         </div>
-        <div class="map-filter-list" id="mapFilterList" role="group" aria-label="Áreas de trabajo"></div>
       </div>
+    </section>
 
-      <div class="map-layout">
-        <div class="map-stage">
-          <div class="map-stage-top">
-            <span><span class="signal-dot"></span><span data-copy="mapLiveLabel">PROYECTOS CONECTADOS</span></span>
-            <span class="map-instruction">03 proyectos</span>
+    <section class="qa-section" id="qa" aria-labelledby="qa-title">
+      <div class="container qa-inner">
+        <p class="section-number" data-i18n="qaIndex">EN DETALLE / QA</p>
+        <div><h2 id="qa-title" data-i18n="qaTitle">Comprobar también es construir.</h2><p data-i18n="qaText">En SOLTECJS apoyé en las pruebas de facturación electrónica. También utilicé Python y Playwright para automatización dentro de mis funciones de programación y soporte.</p><div class="tag-list" aria-label="Herramientas y experiencia de QA"><span class="qa-tag"><img src="assets/tech/invoice-check.svg" alt="" width="18" height="18"><span data-i18n="qaTag1">Pruebas de facturación electrónica</span></span><span class="qa-tag"><img src="assets/tech/python.svg" alt="" width="18" height="18"><span>Python</span></span><span class="qa-tag"><img src="assets/tech/playwright.svg" alt="" width="18" height="18"><span>Playwright</span></span><span class="qa-tag"><img src="assets/tech/microsoftsqlserver.svg" alt="" width="18" height="18"><span>SQL Server</span></span><span class="qa-tag"><img src="assets/tech/mariadb.svg" alt="" width="18" height="18"><span>MariaDB</span></span></div></div>
+      </div>
+    </section>
+
+    <section class="projects-section section-space" id="proyectos" aria-labelledby="projects-title">
+      <div class="container">
+        <div class="section-heading">
+          <p class="section-number" data-i18n="projectsIndex">03 / PROYECTOS</p>
+          <div><h2 id="projects-title" data-i18n="projectsTitle">Productos propios que siguen creciendo.</h2><p class="section-lead" data-i18n="projectsIntro">Muestro el objetivo y el estado real de cada proyecto. Ambos continúan en desarrollo.</p></div>
+        </div>
+        <div class="project-grid">
+          <article class="project-card">
+            <div class="project-top"><span class="project-number">01 / JOSÉ</span><span class="project-status"><i aria-hidden="true"></i><span data-i18n="statusBuilding">EN DESARROLLO</span></span></div>
+            <div><p class="project-kind" data-i18n="joseKind">SISTEMA DE CENTRO DE ATENCIÓN</p><h3>José</h3><p class="project-description" data-i18n="joseText">Estoy construyendo José para organizar solicitudes y tickets con trazabilidad. También integro chat y actualizaciones en tiempo real.</p></div>
+            <dl class="project-details"><div class="project-focus"><dt data-i18n="joseFocusLabel">ENFOQUE</dt><dd data-i18n="joseFocus">Atención · tickets · seguimiento</dd></div><div class="project-tech"><dt data-i18n="joseStackLabel">TECNOLOGÍAS</dt><dd><ul class="tech-icons" id="jose-tech" aria-label="Tecnologías de José"><li><button class="tech-token" type="button" aria-label="PHP 8.3+" data-label="PHP 8.3+" style="--tech-color:#777BB4"><img src="assets/tech/php.svg" alt="" width="27" height="27"><span class="tech-glyph" aria-hidden="true">PHP</span></button></li><li><button class="tech-token" type="button" aria-label="Laravel 13" data-label="Laravel 13" style="--tech-color:#FF2D20"><img src="assets/tech/laravel.svg" alt="" width="27" height="27"><span class="tech-glyph" aria-hidden="true">L</span></button></li><li><button class="tech-token tech-token-glyph" type="button" aria-label="Blade" data-label="Blade" style="--tech-color:#E74430"><span class="tech-glyph" aria-hidden="true">B</span></button></li><li><button class="tech-token" type="button" aria-label="JavaScript" data-label="JavaScript" style="--tech-color:#D6AA00"><img src="assets/tech/javascript.svg" alt="" width="27" height="27"><span class="tech-glyph" aria-hidden="true">JS</span></button></li><li><button class="tech-token" type="button" aria-label="Vite" data-label="Vite" style="--tech-color:#7356C9"><img src="assets/tech/vite.svg" alt="" width="27" height="27"><span class="tech-glyph" aria-hidden="true">V</span></button></li><li><button class="tech-token" type="button" aria-label="Laravel Echo" data-label="Laravel Echo" style="--tech-color:#FF95A8"><img src="assets/tech/echo.svg" alt="" width="27" height="27"><span class="tech-glyph" aria-hidden="true">E</span></button></li><li><button class="tech-token" type="button" aria-label="Laravel Reverb" data-label="Laravel Reverb" style="--tech-color:#FF95A8"><img src="assets/tech/reverb.svg" alt="" width="27" height="27"><span class="tech-glyph" aria-hidden="true">R</span></button></li><li><button class="tech-token" type="button" aria-label="Pusher.js" data-label="Pusher.js" style="--tech-color:#503267"><img src="assets/tech/pusher.svg" alt="" width="27" height="27"><span class="tech-glyph" aria-hidden="true">P</span></button></li><li><button class="tech-token" type="button" aria-label="MariaDB" data-label="MariaDB" style="--tech-color:#145D65"><img src="assets/tech/mariadb.svg" alt="" width="27" height="27"><span class="tech-glyph" aria-hidden="true">DB</span></button></li><li><button class="tech-token" type="button" aria-label="MySQL" data-label="MySQL" style="--tech-color:#4479A1"><img src="assets/tech/mysql.svg" alt="" width="27" height="27"><span class="tech-glyph" aria-hidden="true">DB</span></button></li><li><button class="tech-token" type="button" aria-label="SQLite" data-label="SQLite" style="--tech-color:#13688A"><img src="assets/tech/sqlite.svg" alt="" width="27" height="27"><span class="tech-glyph" aria-hidden="true">DB</span></button></li><li><button class="tech-token" type="button" aria-label="Docker" data-label="Docker" style="--tech-color:#2560ff"><img src="assets/tech/docker.svg?v=20261007-official" alt="" width="27" height="27"><span class="tech-glyph" aria-hidden="true">D</span></button></li><li><button class="tech-token" type="button" aria-label="Docker Compose" data-label="Docker Compose" style="--tech-color:#2560ff"><img src="assets/tech/compose.png" alt="" width="27" height="27"><span class="tech-glyph" aria-hidden="true">DC</span></button></li><li><button class="tech-token tech-token-wide" type="button" aria-label="PHPUnit" data-label="PHPUnit" style="--tech-color:#426982"><img src="assets/tech/phpunit.svg" alt="" width="64" height="20"><span class="tech-glyph" aria-hidden="true">PU</span></button></li><li><button class="tech-token" type="button" aria-label="Playwright" data-label="Playwright" style="--tech-color:#2EAD33"><img src="assets/tech/playwright.svg" alt="" width="27" height="27"><span class="tech-glyph" aria-hidden="true">PW</span></button></li><li><button class="tech-token" type="button" aria-label="Chromium" data-label="Chromium" style="--tech-color:#4285F4"><img src="assets/tech/chromium.png" alt="" width="27" height="27"><span class="tech-glyph" aria-hidden="true">Cr</span></button></li><li><button class="tech-token" type="button" aria-label="GitHub Actions" data-label="GitHub Actions" style="--tech-color:#2088FF"><img src="assets/tech/githubactions.svg" alt="" width="27" height="27"><span class="tech-glyph" aria-hidden="true">GA</span></button></li><li><button class="tech-token" type="button" aria-label="Composer" data-label="Composer" style="--tech-color:#885630"><img src="assets/tech/composer.svg" alt="" width="27" height="27"><span class="tech-glyph" aria-hidden="true">C</span></button></li><li><button class="tech-token" type="button" aria-label="npm" data-label="npm" style="--tech-color:#CB3837"><img src="assets/tech/npm.svg?v=20261007-audit" alt="" width="27" height="27"><span class="tech-glyph" aria-hidden="true">N</span></button></li></ul><p class="tech-readout" data-i18n="techHint" aria-live="polite">Pasa el cursor o toca un icono para ver su nombre.</p></dd></div></dl>
+          </article>
+          <article class="project-card">
+            <div class="project-top"><span class="project-number">02 / NISSI</span><span class="project-status"><i aria-hidden="true"></i><span data-i18n="statusBuilding">EN DESARROLLO</span></span></div>
+            <div><p class="project-kind" data-i18n="nissiKind">PRODUCTO PROPIO DE GESTIÓN</p><h3>NISSI</h3><p class="project-description" data-i18n="nissiText">Estoy desarrollando NISSI alrededor de servicios, citas y disponibilidad. Usuarios, roles, procesos y pagos forman parte del alcance previsto.</p></div>
+            <dl class="project-details"><div class="project-focus"><dt data-i18n="nissiFocusLabel">ALCANCE PREVISTO</dt><dd data-i18n="nissiFocus">Servicios · citas · usuarios · pagos</dd></div><div class="project-tech"><dt data-i18n="nissiStackLabel">TECNOLOGÍAS</dt><dd><ul class="tech-icons" id="nissi-tech" aria-label="Tecnologías de NISSI"><li><button class="tech-token" type="button" aria-label="PHP 8.3" data-label="PHP 8.3" style="--tech-color:#777BB4"><img src="assets/tech/php.svg" alt="" width="27" height="27"><span class="tech-glyph" aria-hidden="true">PHP</span></button></li><li><button class="tech-token" type="button" aria-label="Laravel 13" data-label="Laravel 13" style="--tech-color:#FF2D20"><img src="assets/tech/laravel.svg" alt="" width="27" height="27"><span class="tech-glyph" aria-hidden="true">L</span></button></li><li><button class="tech-token tech-token-glyph" type="button" aria-label="Blade" data-label="Blade" style="--tech-color:#E74430"><span class="tech-glyph" aria-hidden="true">B</span></button></li><li><button class="tech-token" type="button" aria-label="JavaScript" data-label="JavaScript" style="--tech-color:#D6AA00"><img src="assets/tech/javascript.svg" alt="" width="27" height="27"><span class="tech-glyph" aria-hidden="true">JS</span></button></li><li><button class="tech-token" type="button" aria-label="Git" data-label="Git" style="--tech-color:#F03C2E"><img src="assets/tech/git.svg" alt="" width="27" height="27"><span class="tech-glyph" aria-hidden="true">G</span></button></li><li><button class="tech-token" type="button" aria-label="Axios" data-label="Axios" style="--tech-color:#5A29E4"><img src="assets/tech/axios.svg" alt="" width="27" height="27"><span class="tech-glyph" aria-hidden="true">AX</span></button></li><li><button class="tech-token" type="button" aria-label="Tailwind CSS 4" data-label="Tailwind CSS 4" style="--tech-color:#06B6D4"><img src="assets/tech/tailwind.svg" alt="" width="27" height="27"><span class="tech-glyph" aria-hidden="true">TW</span></button></li><li><button class="tech-token" type="button" aria-label="CSS" data-label="CSS" style="--tech-color:#1572B6"><img src="assets/tech/css.svg" alt="" width="27" height="27"><span class="tech-glyph" aria-hidden="true">CSS</span></button></li><li><button class="tech-token" type="button" aria-label="Vite 7" data-label="Vite 7" style="--tech-color:#7356C9"><img src="assets/tech/vite.svg" alt="" width="27" height="27"><span class="tech-glyph" aria-hidden="true">V</span></button></li><li><button class="tech-token" type="button" aria-label="MariaDB" data-label="MariaDB" style="--tech-color:#145D65"><img src="assets/tech/mariadb.svg" alt="" width="27" height="27"><span class="tech-glyph" aria-hidden="true">DB</span></button></li><li><button class="tech-token" type="button" aria-label="SQLite" data-label="SQLite" style="--tech-color:#13688A"><img src="assets/tech/sqlite.svg" alt="" width="27" height="27"><span class="tech-glyph" aria-hidden="true">DB</span></button></li><li><button class="tech-token tech-token-wide" type="button" aria-label="PHPUnit 12" data-label="PHPUnit 12" style="--tech-color:#426982"><img src="assets/tech/phpunit.svg" alt="" width="64" height="20"><span class="tech-glyph" aria-hidden="true">PU</span></button></li><li><button class="tech-token" type="button" aria-label="Composer" data-label="Composer" style="--tech-color:#885630"><img src="assets/tech/composer.svg" alt="" width="27" height="27"><span class="tech-glyph" aria-hidden="true">C</span></button></li><li><button class="tech-token" type="button" aria-label="npm" data-label="npm" style="--tech-color:#CB3837"><img src="assets/tech/npm.svg?v=20261007-audit" alt="" width="27" height="27"><span class="tech-glyph" aria-hidden="true">N</span></button></li></ul><p class="tech-readout" data-i18n="techHint" aria-live="polite">Pasa el cursor o toca un icono para ver su nombre.</p></dd></div></dl>
+          </article>
+        </div>
+
+        <div class="more-work">
+          <div class="more-work-heading"><h3 data-i18n="moreWorkTitle">Otros trabajos y práctica</h3><p data-i18n="moreWorkIntro">Una selección de trabajos públicos y experiencias aplicadas.</p></div>
+          <div class="more-work-list">
+            <div class="work-row"><span class="work-row-number">01</span><div><strong data-i18n="pipelineTitle">Pipeline DevSecOps</strong><small data-i18n="pipelineType">Práctica de seguridad en CI/CD con GitHub Actions, Gitleaks, Bandit y Trivy.</small></div><a href="https://github.com/DinoDiana-98/devsecops-security-pipeline" target="_blank" rel="noopener noreferrer"><span data-i18n="viewRepository">Ver repositorio</span> ↗</a></div>
+            <div class="work-row"><span class="work-row-number">02</span><div><strong data-i18n="facultyTitle">Sitio de la Facultad de Enfermería</strong><small data-i18n="facultyType">Desarrollo web institucional durante mis prácticas en la UNT.</small></div><a href="https://dinodiana-98.github.io/facenf/" target="_blank" rel="noopener noreferrer"><span data-i18n="viewSite">Ver sitio</span> ↗</a></div>
+            <div class="work-row"><span class="work-row-number">03</span><div><strong data-i18n="attendanceTitle">Aplicación móvil de asistencia</strong><small data-i18n="attendanceType">Solución con geolocalización desarrollada en Rolex Constructores SAC.</small></div><span class="work-row-note" data-i18n="appliedWork">Experiencia aplicada</span></div>
+            <div class="work-row"><span class="work-row-number">04</span><div><strong data-i18n="owaspTitle">Laboratorio OWASP Top 10</strong><small data-i18n="owaspType">Práctica de análisis de vulnerabilidades y reporte técnico.</small></div><span class="work-row-note" data-i18n="practice">Práctica</span></div>
+            <div class="work-row"><span class="work-row-number">05</span><div><strong>CINAPRI EDU</strong><small data-i18n="eduType">Contenido educativo sobre prevención de estafas y ciberhigiene.</small></div><a href="https://www.tiktok.com/@cinapri.pq" target="_blank" rel="noopener noreferrer"><span data-i18n="viewChannel">Ver canal</span> ↗</a></div>
           </div>
-          <div class="graph-frame" id="graphFrame">
-            <div class="graph-placeholder" id="graphPlaceholder"><span class="placeholder-code" aria-hidden="true">01<br>02<br>03</span><span data-copy="graphPlaceholder">Conectando áreas con proyectos…</span></div>
-            <div class="graph-column-headings" aria-hidden="true"><span data-copy="graphAreas">ÁREA SELECCIONADA</span><span data-copy="graphProjects">PROYECTOS RELACIONADOS</span></div>
-            <svg id="evidenceGraph" role="group" aria-describedby="map-explorer-help" aria-label="Mapa interactivo de proyectos y habilidades"></svg>
-            <div class="graph-footnote"><span data-copy="graphField">CONEXIONES</span><span class="graph-key"><i class="key-line" aria-hidden="true"></i><span data-copy="graphConnection">cada línea relaciona trabajos y habilidades</span></span></div>
-          </div>
-          <div class="map-directory" id="mapDirectory" aria-label="Nodos del mapa">
-            <p class="directory-heading" data-copy="directoryHeading">Explorar por área</p>
-            <div class="directory-groups">
-              <div class="directory-group"><span data-copy="areaWeb">Aplicaciones & producto</span><button type="button" data-node-id="web">Ver área</button></div>
-              <div class="directory-group"><span data-copy="areaQuality">Automatización & calidad</span><button type="button" data-node-id="quality">Ver área</button></div>
-              <div class="directory-group"><span data-copy="areaSecurity">Seguridad & DevSecOps</span><button type="button" data-node-id="security">Ver área</button></div>
-              <div class="directory-group"><span data-copy="areaSupport">Soporte & sistemas</span><button type="button" data-node-id="support">Ver área</button></div>
-            </div>
-          </div>
         </div>
-
-        <aside class="evidence-panel" id="evidencePanel" aria-live="polite" aria-label="Detalle seleccionado">
-          <div class="panel-topline"><span data-copy="panelLabel">CÓMO LO APLIQUÉ</span><span id="panelCounter">Elige una tarjeta</span></div>
-          <div id="panelContent">
-            <p class="panel-type" data-copy="panelDefaultType">EMPIEZA AQUÍ</p>
-            <h3 data-copy="panelDefaultTitle">Selecciona una tarjeta del mapa.</h3>
-            <p data-copy="panelDefaultBody">Verás dónde lo apliqué, qué herramientas usé y qué hice en cada trabajo.</p>
-            <div class="panel-hint"><span aria-hidden="true">↙</span><span data-copy="panelDefaultHint">Tu exploración empieza en el mapa</span></div>
-          </div>
-        </aside>
       </div>
-
     </section>
 
-    <section class="work-section section-shell" id="proyectos" aria-labelledby="work-title">
-      <div class="section-heading compact-heading">
-        <div><p class="section-kicker" data-copy="workKicker">03 / TRABAJO SELECCIONADO</p><h2 id="work-title" data-copy="workTitle">Pruebas, no solo etiquetas.</h2></div>
-        <p class="section-aside" data-copy="workAside">Proyectos y colaboraciones organizados por el problema que abordan.</p>
+    <section class="contact-section" id="contacto" aria-labelledby="contact-title">
+      <div class="container contact-inner">
+        <p class="section-number" data-i18n="contactIndex">04 / CONTACTO</p>
+        <div><h2 id="contact-title" data-i18n="contactTitle">¿Conversamos?</h2><p class="contact-description" data-i18n="contactText">Me interesa colaborar en prospección, atención y proyectos digitales. Si mi perfil encaja con tu equipo, estaré encantada de conversar.</p><a class="contact-email" href="mailto:dprincipe.q@gmail.com">dprincipe.q@gmail.com <span aria-hidden="true">↗</span></a><div class="contact-links"><a href="tel:+51904908206">+51 904 908 206</a><a href="https://www.linkedin.com/in/leidy-diana-principe-quispe-8ba739131/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a><a href="https://github.com/DinoDiana-98" target="_blank" rel="noopener noreferrer">GitHub ↗</a></div></div>
       </div>
-      <div class="project-shelf" id="projectShelf"></div>
     </section>
-
-    <section class="journey-section section-shell" id="trayectoria" aria-labelledby="journey-title">
-      <div class="section-heading compact-heading">
-        <div><p class="section-kicker" data-copy="journeyKicker">04 / TRAYECTORIA</p><h2 id="journey-title" data-copy="journeyTitle">De la operación al producto.</h2></div>
-        <p class="section-aside" data-copy="journeyAside">Experiencia en desarrollo, soporte, infraestructura y diseño técnico.</p>
-      </div>
-      <div class="journey-rail" id="journeyRail"></div>
-    </section>
-
-    <section class="toolkit-section section-shell" id="herramientas" aria-labelledby="toolkit-title">
-      <div class="section-heading compact-heading">
-        <div><p class="section-kicker" data-copy="toolkitKicker">05 / HERRAMIENTAS</p><h2 id="toolkit-title" data-copy="toolkitTitle">Tecnologías que pongo en práctica.</h2></div>
-        <p class="section-aside" data-copy="toolkitAside">De interfaces a automatización y seguridad: mis herramientas de un vistazo.</p>
-      </div>
-      <div class="toolkit-grid" id="toolkitGrid"></div>
-    </section>
-
-    <section class="contact-end section-shell" id="contacto" aria-labelledby="contact-end-title">
-      <p class="section-kicker" data-copy="contactKicker">06 / SIGUIENTE CONEXIÓN</p>
-      <h2 id="contact-end-title" data-copy="contactEndTitle">¿Tienes un reto en mente?</h2>
-      <p data-copy="contactEndText">Cuéntame qué necesitas; me gusta convertir problemas concretos en soluciones útiles.</p>
-      <a class="contact-end-email" href="mailto:dprincipe.q@gmail.com">dprincipe.q@gmail.com <span aria-hidden="true">↗</span></a>
-    </section>
-    <div class="contact-widget" id="contactWidget">
-      <button class="contact-fab" id="contactFab" type="button" tabindex="-1" aria-controls="contactPanel" aria-expanded="false">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6.5h16v11H4zM4 7l8 6 8-6"/></svg>
-        <span data-copy="contactFab">Contacto</span><span aria-hidden="true">↗</span>
-      </button>
-      <section class="contact-panel" id="contactPanel" aria-labelledby="contact-title" aria-hidden="true">
-        <button class="contact-close" id="contactClose" type="button" aria-label="Cerrar contacto">×</button>
-        <div class="contact-orbit" aria-hidden="true"><span></span><span></span><span></span></div>
-        <div class="contact-panel-top"><span class="contact-panel-mark" aria-hidden="true">LD</span><span><strong>Leidy Diana</strong><small data-copy="contactLocation">Trujillo, Perú · abierta a proyectos</small></span></div>
-        <div class="contact-copy">
-          <p class="section-kicker" data-copy="contactKicker">06 / SIGUIENTE CONEXIÓN</p>
-          <h2 id="contact-title" data-copy="contactTitle">¿Qué podemos construir?</h2>
-          <p data-copy="contactText">Puedo ayudarte a construir una aplicación, automatizar un proceso o revisar cómo protegerlo. Cuéntame tu idea.</p>
-        </div>
-        <p class="contact-direct"><span data-copy="contactDirect">CORREO DIRECTO</span><strong>dprincipe.q@gmail.com</strong></p>
-        <div class="contact-panel-actions">
-          <a class="action action-primary contact-action" href="mailto:dprincipe.q@gmail.com"><span data-copy="contactButton">Escríbeme</span><span aria-hidden="true">↗</span></a>
-          <a class="contact-secondary" href="https://www.linkedin.com/in/leidy-diana-principe-quispe-8ba739131/" target="_blank" rel="noopener noreferrer">LinkedIn <span aria-hidden="true">↗</span></a>
-          <a class="contact-secondary" href="https://github.com/DinoDiana-98" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
-        </div>
-      </section>
-    </div>
   </main>
 
-  <footer class="footer section-shell">
-    <div class="footer-name"><span class="brand-mark" aria-hidden="true">LD</span><span>Leidy Diana Príncipe Quispe</span></div>
-    <p data-copy="footerText">Desarrolladora Full Stack Junior · Trujillo, Perú</p>
-    <div class="footer-links">
-      <a href="mailto:dprincipe.q@gmail.com">Email</a>
-      <a href="tel:+51904908206">+51 904 908 206</a>
-      <a href="https://www.linkedin.com/in/leidy-diana-principe-quispe-8ba739131/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-      <a href="https://github.com/DinoDiana-98" target="_blank" rel="noopener noreferrer">GitHub</a>
-      <a href="https://www.tiktok.com/@cinapri.pq" target="_blank" rel="noopener noreferrer">CINAPRI EDU</a>
-    </div>
-    <small>© <span id="year">2026</span> Leidy Diana Príncipe</small>
-  </footer>
-  <noscript><p class="noscript-note">Esta experiencia interactiva necesita JavaScript para mostrar sus fichas y conexiones.</p></noscript>
+  <footer class="site-footer"><div class="container footer-inner"><span>Leidy Diana Principe Quispe <span class="footer-dot">·</span> Cinapri</span><span>© <span id="year">2026</span> · Trujillo, Perú</span></div></footer>
 </body>
 </html>
